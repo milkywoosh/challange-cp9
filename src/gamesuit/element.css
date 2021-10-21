@@ -1,0 +1,24 @@
+.batu {
+    width: 128px;
+    height: 120px;
+}
+
+.gunting {
+    width: 134px;
+    height: 140px;
+    /* overflow: visible; */
+
+    /* percobaan 1 */
+    /* width: 100%;
+    height: 50%; */
+}
+
+.kertas {
+    width: 115px;
+    height: 150px;
+}
+
+.margin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
