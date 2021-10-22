@@ -9,11 +9,14 @@ const GameSuit = () => {
     const [element, setElement] = useState(["batu", "gunting", "kertas"]);
     const [versus, setVersus] = useState("")
 
+    
     return (
         <>
             <div className="row">
                 <div className="column margin">
-                    <Elements />
+                    <Elements 
+                    
+                    onMouseOver={ () => alert('onMouseOver...')}/>
                 </div>
                 <div className="column margin vs-frame">
                     VS
