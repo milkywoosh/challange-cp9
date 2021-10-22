@@ -1,24 +1,19 @@
-import NavBar from "../component/navbar";
 import Register from '../component/register'
 import Login from '../component/login'
 import LandPage from "../component/landPage";
 
 const routes =[
     {
-        path :'/',
-        component:<NavBar/>,
+        path :'/register',
+        component:<Register/>,
         exact : true,
-    },
-    {
-        path:'/register',
-        component:<Register/>
     },
     {
         path:'/login',
         component:<Login/>
     },
     {
-        path:'land',
+        path:'/land',
         component:<LandPage/>
     }
 

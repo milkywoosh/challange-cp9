@@ -1,11 +1,15 @@
-import React from "react";
+import React,{ Component } from 'react'
+import { Container } from 'react-bootstrap'
+import './index.css'
 
 
-function LandPage(){
-<p>
-    You are successfully Login
-</p>
+
+export default class LandPage extends Component{
+    render() {
+        return (
+            <Container>
+        <h1>ini Landing Page</h1>
+        </Container>
+        )
+    }
 }
-
-
-export default  LandPage
