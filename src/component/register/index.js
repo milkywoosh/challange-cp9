@@ -1,8 +1,6 @@
-import React,{ Component, useCallback, useState} from "react";
+import React,{ Component } from "react";
 import {Form,Button, Container} from 'react-bootstrap'
 import './index.css'
-// import { useAuth } from "../../auth/authContext";
-// import { firebaseAuth } from "../../config/firebase";
 import { Link } from "react-router-dom";
 import {firebaseAuthentication} from "../../base/firebase";
 
@@ -85,9 +83,9 @@ export default class Register extends Component{
     <Form.Text>
     </Form.Text>
 </Form.Group>
-    <Button   type="submit" >Registered</Button>
+    <Button   type="submit" >Register</Button>
     <br/><br/><br/>
-    <p>Have an account ? <Link>Login here</Link></p>
+    <p>Have an account ? <Link to='/login'>Login here</Link></p>
     </Form>
         </Container>
     )
