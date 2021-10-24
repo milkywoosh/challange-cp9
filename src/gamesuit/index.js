@@ -23,7 +23,7 @@ const GameSuit = () => {
     scriptBootstrap.crossOrigin = "anonymous";
 
     document.getElementsByTagName("head")[0].append(scriptBootstrap);
-    
+
     return (
         <>
             <div className="d-flex flex-row less_than ">
@@ -33,6 +33,7 @@ const GameSuit = () => {
             </div>
             <div className="d-flex flex-row justify-content-center">
                 <div className="column margin">
+                    <span className="tag-name"> Player 1 </span>
                     <Elements
                     />
                 </div>
@@ -40,6 +41,7 @@ const GameSuit = () => {
                     VS
                 </div>
                 <div className="column margin">
+                    <span className="tag-name" > Computer </span>
                     <Elements />
                 </div>
             </div>
