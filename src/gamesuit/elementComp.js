@@ -4,11 +4,12 @@ import gunting from './assets/gunting.png';
 import kertas from './assets/kertas.png';
 import "./element.css"
 import { Container, Row, Col, Stack, Alert } from 'react-bootstrap';
+import { Suitclass } from './suit';
 
 // import bootstrap HERE !!!
 
 
-const Elements = (props) => {
+const ElementsComp = (props) => {
 
     const [hoverBatu, setHoverBatu] = useState(null);
     const [hoverGunting, setHoverGunting] = useState(null);
@@ -43,20 +44,35 @@ const Elements = (props) => {
     }
 
 
+
+
     return (
         <Container>
-           
 
             <div  >
                 <div className="margin-div">
-                    <div id='batu' onMouseOver={mouseOverBatu} onMouseLeave={mouseLeave} className={hoverBatu}>
-                        <img className="batu margin" src={batu} alt="batu" />
+
+                    <div onMouseOver={mouseOverBatu} onMouseLeave={mouseLeave} className={hoverBatu}>
+                        <img
+                            id="batuElement"
+                            className="batu margin"
+                            src={batu}
+                            alt="batu" />
                     </div>
-                    <div id='gunting' onMouseOver={mouseOverGunting} onMouseLeave={mouseLeave} className={hoverGunting} >
-                        <img className="gunting margin" src={gunting} alt="gunting" />
+
+                    <div onMouseOver={mouseOverGunting} onMouseLeave={mouseLeave} className={hoverGunting} >
+                        <img
+                            className="gunting margin"
+                            src={gunting}
+                            alt="gunting"
+                            id="idGunting"/>
                     </div>
-                    <div id='kertas' onMouseOver={mouseOverKertas} onMouseLeave={mouseLeave} className={hoverKertas}>
-                        <img className="kertas margin" src={kertas} alt="kertas" />
+                    <div onMouseOver={mouseOverKertas} onMouseLeave={mouseLeave} className={hoverKertas}>
+                        <img
+                            className="kertas margin"
+                            src={kertas}
+                            alt="kertas"
+                            id="idKertas" />
                     </div>
                 </div>
 
@@ -68,4 +84,4 @@ const Elements = (props) => {
     )
 }
 
-export default Elements;
+export default ElementsComp;
