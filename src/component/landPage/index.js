@@ -13,3 +13,4 @@ export default class LandPage extends Component{
         )
     }
 }
+// "firebase": "^8.4.2"
