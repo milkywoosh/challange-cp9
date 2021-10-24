@@ -1,11 +1,11 @@
 .batu {
-    width: 128px;
-    height: 120px;
+    width: 108px;
+    height: 100px;
 }
 
 .gunting {
-    width: 134px;
-    height: 140px;
+    width: 114px;
+    height: 120px;
     /* overflow: visible; */
 
     /* percobaan 1 */
@@ -14,11 +14,29 @@
 }
 
 .kertas {
-    width: 115px;
-    height: 150px;
+    width: 95px;
+    height: 130px;
 }
 
 .margin {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.set-bg-grey {
+    background: #C4C4C4;
+    border-radius: 10px;
+}
+
+.less_than {
+    font-family: Open Sans;
+    width: 600px; /* the bigger the font, the wider it needs */
+    /* height: 50px; */
+    /* letter-spacing: 0.1em; */
+    /* text-transform: uppercase; */
+    text-align:left;
+
+    color: #724C21;
+    font-size: 60px; 
+    font-weight: bold;
 }
