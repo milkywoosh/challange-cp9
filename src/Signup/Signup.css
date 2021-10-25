@@ -1,5 +1,6 @@
-.App {
+.App1 {
   text-align: left;
+  background-color: black;
 }
 
 .App-logo {
@@ -25,7 +26,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: black;
 }
 
 .App-link1 {
@@ -43,9 +44,6 @@
 
 .label {
   font-size: small;
-}
-
-.button {
 }
 
 .text {
