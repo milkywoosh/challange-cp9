@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import ElementPlayer1 from './elementPlayer1';
-import ElementComp from './elementComp';
-// import "./element.css"
+
+import "./element.css"
 import "./index.css"
 import logoGame from './assets/logoGame.png'
 import { Container, Row, Col, Stack } from 'react-bootstrap'
 import { Suitclass } from './suit';
 import { propTypes } from 'react-bootstrap/esm/Image';
-
+import ElementBatu from './elementBatu';
+import ElementGunting from './elementGunting';
+import ElementKertas from './elementKertas';
 
 const GameSuit = (props) => {
-
+    let game = new Suitclass();
 
     let linkBootstrap = document.createElement("link");
     linkBootstrap.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css";
@@ -26,7 +27,136 @@ const GameSuit = (props) => {
     scriptBootstrap.crossOrigin = "anonymous";
     document.getElementsByTagName("head")[0].append(scriptBootstrap);
 
+    const [hoverBatu, setHoverBatu] = useState(null);
+    const [hoverGunting, setHoverGunting] = useState(null);
+    const [hoverKertas, setHoverKertas] = useState(null);
+    const [hoverBatuCom, setHoverBatuCom] = useState(null);
+    const [hoverGuntingCom, setHoverGuntingCom] = useState(null);
+    const [hoverKertasCom, setHoverKertasCom] = useState(null);
+    const [winner, setWinner] = useState(null)
+    const [compTurn, setCompTurn] = useState(null);
 
+    // JGN LUPA PINDAHIN KE MASING MASING ELEMENT
+    const mouseOverBatu = () => {
+        if (hoverBatu == null) {
+            setHoverBatu("set-bg-grey")
+        }
+    }
+    const mouseOverBatuCom = () => {
+        if (hoverBatuCom == null) {
+            setHoverBatuCom("set-bg-grey")
+        }
+    }
+    const mouseOverGunting = () => {
+        if (hoverGuntingCom == null) {
+            setHoverGunting("set-bg-grey")
+        }
+    }
+    const mouseOverGuntingCom = () => {
+        if (hoverGuntingCom == null) {
+            setHoverGuntingCom("set-bg-grey")
+        }
+    }
+    const mouseOverKertas = () => {
+        if (hoverKertas == null) {
+            setHoverKertas("set-bg-grey")
+        }
+    }
+    const mouseOverKertasCom = () => {
+        if (hoverKertasCom == null) {
+            setHoverKertasCom("set-bg-grey")
+        }
+    }
+    const mouseLeave = () => {
+        if (hoverBatu !== null) {
+            setHoverBatu(null)
+        }
+        if (hoverGunting !== null) {
+            setHoverGunting(null)
+        }
+        if (hoverKertas !== null) {
+            setHoverKertas(null)
+        }
+
+    }
+    const mouseLeaveCom = () => {
+        if (hoverBatuCom !== null) {
+            setHoverBatuCom(null)
+        }
+        if (hoverGuntingCom !== null) {
+            setHoverGuntingCom(null)
+        }
+        if (hoverKertasCom !== null) {
+            setHoverKertasCom(null)
+        }
+
+    }
+
+
+    const clickBatu = () => {
+        let result = game.suit('batu');
+        let comp = game.computer();
+        if (result) {
+            if (comp === 'batu') {
+                setHoverBatuCom("set-bg-grey")
+            }
+            else if (comp === 'gunting') {
+                setHoverGuntingCom("set-bg-grey")
+            }
+            else if (comp === 'kertas') {
+                setHoverKertasCom("set-bg-grey")
+            }
+        }
+        setTimeout(() => {
+            setHoverBatuCom(null)
+            setHoverGuntingCom(null)
+            setHoverKertasCom(null)
+        }, 800)
+
+    }
+
+    const clickGunting = () => {
+        let result = game.suit('gunting');
+        let comp = game.computer();
+        if (result) {
+            if (comp === 'batu') {
+                setHoverBatuCom("set-bg-grey")
+            }
+            else if (comp === 'gunting') {
+                setHoverGuntingCom("set-bg-grey")
+            }
+            else if (comp === 'kertas') {
+                setHoverKertasCom("set-bg-grey")
+            }
+        }
+        setTimeout(() => {
+            setHoverBatuCom(null)
+            setHoverGuntingCom(null)
+            setHoverKertasCom(null)
+        }, 800)
+
+    }
+    const clickKertas = () => {
+        let result = game.suit('kertas');
+        let comp = game.computer();
+        if (result) {
+            if (comp === 'batu') {
+                setHoverBatuCom("set-bg-grey")
+            }
+            else if (comp === 'gunting') {
+                setHoverGuntingCom("set-bg-grey")
+            }
+            else if (comp === 'kertas') {
+                setHoverKertasCom("set-bg-grey")
+            }
+        }
+        setTimeout(() => {
+            setHoverBatuCom(null)
+            setHoverGuntingCom(null)
+            setHoverKertasCom(null)
+        }, 800)
+
+    }
 
 
     return (
@@ -40,17 +170,40 @@ const GameSuit = (props) => {
 
                 <div className="column margin">
                     <span className="tag-name-p1"> Player 1 </span>
-                    <ElementPlayer1
-                        getScore={props.onClick} />
+                    <ElementBatu
+                        onClick={() => clickBatu()}
+                        onMouseOver={mouseOverBatu}
+                        onMouseLeave={mouseLeave}
+                        className={hoverBatu} />
+                    <ElementGunting 
+                         onClick={() => clickGunting()}
+                        onMouseOver={mouseOverGunting}
+                        onMouseLeave={mouseLeave}
+                        className={hoverGunting} />
+                    <ElementKertas
+                         onClick={() => clickKertas()}
+                        onMouseOver={mouseOverKertas}
+                        onMouseLeave={mouseLeave}
+                        className={hoverKertas} />
                 </div>
 
                 <div className="column margin vs-frame">
-                    VS
+                    vs
                 </div>
 
                 <div className="column margin">
                     <span className="tag-name" > Computer </span>
-                    <ElementComp />
+                    <ElementBatu onClick={() => { alert('tess') }}
+
+                        className={hoverBatuCom} />
+                    <ElementGunting
+                        onClick={() => { alert('tess') }}
+
+                        className={hoverGuntingCom} />
+                    <ElementKertas onClick={() => { alert('tess') }}
+
+                        className={hoverKertasCom} />
+
                 </div>
             </div>
         </>

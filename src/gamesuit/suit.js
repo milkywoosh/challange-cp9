@@ -2,37 +2,42 @@
 // input (gunting, kertas, batu);
 
 export class Suitclass {
+
+    constructor() {
+        this.pool = ["gunting", "batu", "kertas"];
+        this.rand = Math.floor(Math.random() * this.pool.length);
+        this.result = null;
+    }
+    
+    computer() {
+        return this.pool[this.rand];
+    }
     suit(inputUser) {
-        let pool = ["gunting", "batu", "kertas"];
-        let rand = Math.floor(Math.random() * pool.length);
-        let result;
         if (inputUser === "gunting") {
-            if (pool[rand] === inputUser) {
-                result = "seri";
-            } else if (pool[rand] === "kertas") {
-                result = "menang"
-            } else if (pool[rand] === "batu") {
-                result = "kalah"
+            if (this.pool[this.rand] === inputUser) {
+                this.result = "seri";
+            } else if (this.pool[this.rand] === "kertas") {
+                this.result = "menang"
+            } else if (this.pool[this.rand] === "batu") {
+                this.result = "kalah"
             }
         } else if (inputUser === "batu") {
-            if (pool[rand] === inputUser) {
-                result = "seri";
-            } else if (pool[rand] === "kertas") {
-                result = "kalah"
-            } else if (pool[rand] === "gunting") {
-                result = "menang"
+            if (this.pool[this.rand] === inputUser) {
+                this.result = "seri";
+            } else if (this.pool[this.rand] === "kertas") {
+                this.result = "kalah"
+            } else if (this.pool[this.rand] === "gunting") {
+                this.result = "menang"
             }
         } else if (inputUser === "kertas") {
-            if (pool[rand] ===inputUser) {
-                result = "seri";
-            } else if (pool[rand] === "gunting") {
-                result = "kalah"
-            } else if (pool[rand] === "batu") {
-                result = "menang"
+            if (this.pool[this.rand] ===inputUser) {
+                this.result = "seri";
+            } else if (this.pool[this.rand] === "gunting") {
+                this.result = "kalah"
+            } else if (this.pool[this.rand] === "batu") {
+                this.result = "menang"
             }
         }
-        return result;
+        return this.result;
     }
 }
-
-
