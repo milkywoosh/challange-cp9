@@ -1,9 +1,8 @@
 import React,{ useState, useRef } from "react";
 import {Form,Button, Container,Alert} from 'react-bootstrap'
-import './index.css'
+import './regist.css'
 import { Link,useHistory } from "react-router-dom";
 import {firebaseAuthentication} from "../../base/firebase";
-
 
 // logic 2
 export default function Register(){
@@ -13,14 +12,12 @@ export default function Register(){
     const emailRef = useRef()
     const usernameRef = useRef()
     const history = useHistory()
-    
-    
+      
 async function handleSubmit(e){
     e.preventDefault();
     if (passwordRef.current.value !== confirmPassRef.current.value){
         return setError('Password Did Not Match')
     }
-    // const {email, password} = this.state
     firebaseAuthentication.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
     .then(res=>{
         firebaseAuthentication.currentUser.sendEmailVerification()
@@ -34,16 +31,14 @@ async function handleSubmit(e){
     })
     .catch(err=>{
         alert(err.message)
-    })
-    
-    
+    }) 
 }
 
     return(
         <Container>
     <Form className="register" onSubmit={handleSubmit}>
-    <h1> Register </h1>
-    <h6>Create Your Account First!</h6>
+    <h1 style={{color:"white"}} > Register </h1>
+    <h6 style={{color:"white"}} >Create Your Account First!</h6>
     {error && <Alert variant="danger">{error}</Alert>}
     
     <Form.Group className="mb-3" controlId="username">
@@ -52,7 +47,6 @@ async function handleSubmit(e){
     <Form.Text   >
     </Form.Text>
     </Form.Group>
-
 
     <Form.Group className="mb-3" controlId="email">
     <Form.Label >Email address</Form.Label>
@@ -74,9 +68,9 @@ async function handleSubmit(e){
     <Form.Text>
     </Form.Text>
 </Form.Group>
-    <Button   type="submit" >Register</Button>
+    <Button   type="submit" >Sign Up</Button>
     <br/><br/><br/>
-    <p>Have an account ? <Link to='/login'>Login here</Link></p>
+    <p style={{color:"white"}} >Have an account ? <Link to='/login'>Login here</Link></p>
     </Form>
         </Container>
     )

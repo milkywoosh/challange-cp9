@@ -21,13 +21,12 @@ export default function Login(){
          alert('SuccessFully Login')
         history.push('/land')
         }
-
 }
 
     return(
         <Container>
     <Form className="register" onSubmit={handleSubmit}>
-    <h1> Login </h1>
+    <h1 style={{color:"white"}}> Login </h1>
     {error && <Alert variant="danger">{error}</Alert>}
 
     <Form.Group className="mb-3" controlId="username">
@@ -47,7 +46,7 @@ export default function Login(){
 
     <Button   type="submit" >Login </Button>
     <br/><br/><br/>
-    <p>Do not have an account ? Please <Link to="/register"> Register </Link> First</p>
+    <p style={{color:"white"}}>Do not have an account ? Please <Link to="/register"> Register </Link> First</p>
     </Form>
         </Container>
     )
