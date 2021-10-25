@@ -10,20 +10,17 @@ export default function Login(){
     const emailRef = useRef()
     const history = useHistory()
     
- function handleSubmit(e){
+ async function handleSubmit(e){
     e.preventDefault()
-  
-    try {
-        firebaseAuthentication.signInWithEmailAndPassword(emailRef.current.value,passwordRef.current.value)
+    var errorCode = error.code
+        if(errorCode === "auth/worng-password"){
+            return setError('Login Failed')
+            // baru di console
+        } else {
+        await firebaseAuthentication.signInWithEmailAndPassword(emailRef.current.value,passwordRef.current.value)
          alert('SuccessFully Login')
         history.push('/land')
-    }
-    catch(err){
-        setError('Failed to Login')
-    }
-     
-            
-
+        }
 
 }
 
