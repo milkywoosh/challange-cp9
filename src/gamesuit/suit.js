@@ -7,8 +7,14 @@ export class Suitclass {
         this.pool = ["gunting", "batu", "kertas"];
         this.rand = Math.floor(Math.random() * this.pool.length);
         this.result = null;
+        this.player1 = 0;
+        this.computer = 0;
     }
-    
+
+    storeData() {
+        
+    }
+
     computer() {
         return this.pool[this.rand];
     }
