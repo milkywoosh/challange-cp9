@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import "./element.css"
 import "./index.css"
 import logoGame from './assets/logoGame.png'
-import { Container, Row, Col, Stack } from 'react-bootstrap'
+import { Container, Row, Col, Stack, Button } from 'react-bootstrap'
 import { Suitclass } from './suit';
 import { propTypes } from 'react-bootstrap/esm/Image';
 import ElementBatu from './elementBatu';
@@ -35,8 +35,9 @@ const GameSuit = (props) => {
     const [hoverKertasCom, setHoverKertasCom] = useState(null);
     const [winner, setWinner] = useState(null)
     const [compTurn, setCompTurn] = useState(null);
+    const [versus, SetVersus] = useState("vs")
 
-    // JGN LUPA PINDAHIN KE MASING MASING ELEMENT
+
     const mouseOverBatu = () => {
         if (hoverBatu == null) {
             setHoverBatu("set-bg-grey")
@@ -97,14 +98,18 @@ const GameSuit = (props) => {
         let result = game.suit('batu');
         let comp = game.computer();
         if (result) {
+
             if (comp === 'batu') {
                 setHoverBatuCom("set-bg-grey")
+                SetVersus('Draw')
             }
             else if (comp === 'gunting') {
                 setHoverGuntingCom("set-bg-grey")
+                SetVersus('Player 1 Win')
             }
             else if (comp === 'kertas') {
                 setHoverKertasCom("set-bg-grey")
+                SetVersus('Computer Win')
             }
         }
         setTimeout(() => {
@@ -119,14 +124,18 @@ const GameSuit = (props) => {
         let result = game.suit('gunting');
         let comp = game.computer();
         if (result) {
+
             if (comp === 'batu') {
                 setHoverBatuCom("set-bg-grey")
+                SetVersus('Computer Win')
             }
             else if (comp === 'gunting') {
                 setHoverGuntingCom("set-bg-grey")
+                SetVersus('Draw')
             }
             else if (comp === 'kertas') {
                 setHoverKertasCom("set-bg-grey")
+                SetVersus('Player 1 Win')
             }
         }
         setTimeout(() => {
@@ -140,14 +149,18 @@ const GameSuit = (props) => {
         let result = game.suit('kertas');
         let comp = game.computer();
         if (result) {
+
             if (comp === 'batu') {
                 setHoverBatuCom("set-bg-grey")
+                SetVersus(`Player 1 Win`)
             }
             else if (comp === 'gunting') {
                 setHoverGuntingCom("set-bg-grey")
+                SetVersus('Computer Win')
             }
             else if (comp === 'kertas') {
                 setHoverKertasCom("set-bg-grey")
+                SetVersus('Draw')
             }
         }
         setTimeout(() => {
@@ -158,52 +171,65 @@ const GameSuit = (props) => {
 
     }
 
+    const clickButton = () => {
+        SetVersus('vs');
+    }
 
     return (
         <>
-            <div className="d-flex flex-row less_than ">
-                <div className=" p-2 justify-content-start mark-less ">  &lt;  </div>
-                <div className=" p-2 justify-content-start "> <img className="size-logo-game" src={logoGame} /> </div>
-                <div className=" p-2 sub_title justify-content-start"> ROCK PAPER SCISSORS </div>
-            </div>
-            <div className="d-flex flex-row justify-content-center">
-
-                <div className="column margin">
-                    <span className="tag-name-p1"> Player 1 </span>
-                    <ElementBatu
-                        onClick={() => clickBatu()}
-                        onMouseOver={mouseOverBatu}
-                        onMouseLeave={mouseLeave}
-                        className={hoverBatu} />
-                    <ElementGunting 
-                         onClick={() => clickGunting()}
-                        onMouseOver={mouseOverGunting}
-                        onMouseLeave={mouseLeave}
-                        className={hoverGunting} />
-                    <ElementKertas
-                         onClick={() => clickKertas()}
-                        onMouseOver={mouseOverKertas}
-                        onMouseLeave={mouseLeave}
-                        className={hoverKertas} />
+            <div className="bg-black">
+                <div className="d-flex flex-row less_than ">
+                    <div className=" p-2 justify-content-start mark-less ">  &lt;  </div>
+                    <div className=" p-2 justify-content-start "> <img className="size-logo-game" src={logoGame} /> </div>
+                    <div className=" p-2 sub_title justify-content-start"> ROCK PAPER SCISSORS </div>
                 </div>
+                <div className="d-flex flex-row justify-content-center">
 
-                <div className="column margin vs-frame">
-                    vs
-                </div>
+                    <div className="column margin">
+                        <span className="tag-name-p1"> Player 1 </span>
+                        <ElementBatu
+                            onClick={() => clickBatu()}
+                            onMouseOver={mouseOverBatu}
+                            onMouseLeave={mouseLeave}
+                            className={hoverBatu} />
+                        <ElementGunting
+                            onClick={() => clickGunting()}
+                            onMouseOver={mouseOverGunting}
+                            onMouseLeave={mouseLeave}
+                            className={hoverGunting} />
+                        <ElementKertas
+                            onClick={() => clickKertas()}
+                            onMouseOver={mouseOverKertas}
+                            onMouseLeave={mouseLeave}
+                            className={hoverKertas} />
+                    </div>
 
-                <div className="column margin">
-                    <span className="tag-name" > Computer </span>
-                    <ElementBatu onClick={() => { alert('tess') }}
+                    <div>
 
-                        className={hoverBatuCom} />
-                    <ElementGunting
-                        onClick={() => { alert('tess') }}
+                        <div className="  ">
+                            <span className="  vs-frame">
+                                {versus}
+                            </span>
+                        </div>
+                        <div className="  ">
+                            <Button 
+                                className="button-refresh"
+                                onClick={() => clickButton()}>
+                                Refresh
+                            </Button>
+                        </div>
 
-                        className={hoverGuntingCom} />
-                    <ElementKertas onClick={() => { alert('tess') }}
+                    </div>
 
-                        className={hoverKertasCom} />
-
+                    <div className="column margin">
+                        <span className="tag-name" > Computer </span>
+                        <ElementBatu
+                            className={hoverBatuCom} />
+                        <ElementGunting
+                            className={hoverGuntingCom} />
+                        <ElementKertas
+                            className={hoverKertasCom} />
+                    </div>
                 </div>
             </div>
         </>
