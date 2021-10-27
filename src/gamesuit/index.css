@@ -11,32 +11,56 @@
 
 .vs-frame {
 
-  font-family: Open Sans;
-  font-style: normal;
+  font-family: SF Pro Display;
+  /* font-style: normal; */
   font-weight: bold;
-  font-size: 70px;
-  /* line-height: 450px; */
+  font-size:30px;
+  /* line-height: 480px; */
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #BD0000;
-  display: flex;
+  color: #ECEFF4;
+  display:block;
   text-align: center;
   align-items: center;
-  /* padding: 60px; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   margin-left: 100px;
   margin-right: 100px;
+  background: #035B0C;
+  border-radius: 10px;
+  height: fit-content;
+  width: 280px;
+  word-spacing: 100vw;
+
+}
+
+.result-board { 
+  /* background: #035B0C;
+  border-radius: 10px; */
+  display:block;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 480px;
+  letter-spacing: 0.1em;
+  margin-left: 100px;
+  margin-right: 100px;
+  width: fit-content;
+ 
 }
 
 .less_than {
   margin-left: 20px;
-  font-family: Open Sans;
+  font-family: SF Pro Display;
   width: 600px; /* the bigger the font, the wider it needs */
   /* height: 50px; */
   /* letter-spacing: 0.1em; */
   /* text-transform: uppercase; */
   text-align:left;
 
-  color: #724C21;
+  color: #ECEFF4;
   font-size: 30px; 
   font-weight: bold;
   align-items: center;
@@ -54,10 +78,37 @@
 
 .tag-name {
   font-size: 40px;
-  text-align: left;
+  text-align: center;
   align-items: center;
   font-family: Open Sans;
-  color: #724C21;
+  color: #ECEFF4;
   font-weight: bold;
+  padding: 20px;
   
+}
+.tag-name-p1 {
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
+  font-family: Open Sans;
+  color: #ECEFF4;
+  font-weight: bold;
+  padding: 40px;
+  
+}
+
+.bg-black {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #171A21;
+}
+
+html, 
+body, 
+#background { 
+  
+}
+
+.button-refresh {
+  margin-top: 40px;
 }
