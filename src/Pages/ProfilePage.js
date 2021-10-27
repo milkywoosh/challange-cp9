@@ -1,13 +1,10 @@
 import React from "react";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import MyNavbar from "../Components/MyNavbar";
 import { Container, Row, Button, Col, Stack } from "react-bootstrap";
 
 const ProfilePage = () => {
   return (
     <div className="profile-page">
-      <Header></Header>
       <MyNavbar></MyNavbar>
       <Container className="white-text profile-page-container">
         <Row>
@@ -46,7 +43,6 @@ const ProfilePage = () => {
           </Col>
         </Row>
       </Container>
-      <Footer></Footer>
     </div>
   );
 };
