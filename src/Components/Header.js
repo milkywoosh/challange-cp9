@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Container, Row, Col } from "react-bootstrap";
-import styles from "../Styles/profile.style.css";
+import "../Styles/page.style.css";
 
 const Header = () => {
   return (

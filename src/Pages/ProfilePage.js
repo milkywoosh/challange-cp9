@@ -1,13 +1,10 @@
 import React from "react";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-import MyNavbar from "./Components/MyNavbar";
-import MyButton from "./Components/MyButton";
-
-import styles from "./Styles/profile.style.css";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
+import MyNavbar from "../Components/MyNavbar";
 import { Container, Row, Button, Col, Stack } from "react-bootstrap";
 
-const Profile = () => {
+const ProfilePage = () => {
   return (
     <div className="profile-page">
       <Header></Header>
@@ -54,4 +51,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Form, Button, Col } from "react-bootstrap";
-import styles from "../Styles/profile.style.css";
+import "../Styles/page.style.css";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const MyNavbar = () => {
