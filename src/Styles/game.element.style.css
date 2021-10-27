@@ -1,0 +1,62 @@
+.batu {
+    width: 88px;
+    height: 80px;
+    
+}
+
+/* .batu:hover {
+    width: 88px;
+    height: 80px;
+    background: #C4C4C4;
+    border-radius: 10px;
+} */
+
+.gunting {
+    width: 94px;
+    height: 100px;
+}
+/* .gunting:hover {
+    width: 94px;
+    height: 100px;
+    background: #C4C4C4;
+    border-radius: 10px; 
+}
+*/
+
+.kertas {
+    width: 75px;
+    height: 110px;
+  
+}
+
+/* .kertas:hover {
+    width: 75px;
+    height: 110px;
+    
+} */
+
+.margin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.margin:hover {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background: #C4C4C4;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.margin-grey {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background: #C4C4C4;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+
+

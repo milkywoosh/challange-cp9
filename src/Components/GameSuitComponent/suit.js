@@ -8,7 +8,9 @@ export class Suitclass {
         this.rand = Math.floor(Math.random() * this.pool.length);
         this.result = null;
     }
-    
+
+
+
     computer() {
         return this.pool[this.rand];
     }

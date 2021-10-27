@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import "./element.css"
-import "./index.css"
-import logoGame from './assets/logoGame.png'
-import { Container, Row, Col, Stack, Button } from 'react-bootstrap'
-import { Suitclass } from './suit';
-import { propTypes } from 'react-bootstrap/esm/Image';
-import ElementBatu from './elementBatu';
-import ElementGunting from './elementGunting';
-import ElementKertas from './elementKertas';
+import "../Styles/game.index.style.css"
+import "../Styles/game.element.style.css"
+import logoGame from '../Components/GameSuitComponent/logoGame.png';
+import { Button } from 'react-bootstrap'
+import { Suitclass } from '../Components/GameSuitComponent/suit';
+import ElementBatu from '../Components/GameSuitComponent/elementBatu';
+import ElementGunting from '../Components/GameSuitComponent/elementGunting';
+import ElementKertas from '../Components/GameSuitComponent/elementKertas';
 
 const GameSuit = (props) => {
     let game = new Suitclass();
@@ -27,71 +26,11 @@ const GameSuit = (props) => {
     scriptBootstrap.crossOrigin = "anonymous";
     document.getElementsByTagName("head")[0].append(scriptBootstrap);
 
-    const [hoverBatu, setHoverBatu] = useState(null);
-    const [hoverGunting, setHoverGunting] = useState(null);
-    const [hoverKertas, setHoverKertas] = useState(null);
+
     const [hoverBatuCom, setHoverBatuCom] = useState(null);
     const [hoverGuntingCom, setHoverGuntingCom] = useState(null);
     const [hoverKertasCom, setHoverKertasCom] = useState(null);
-    const [winner, setWinner] = useState(null)
-    const [compTurn, setCompTurn] = useState(null);
     const [versus, SetVersus] = useState("vs")
-
-
-    const mouseOverBatu = () => {
-        if (hoverBatu == null) {
-            setHoverBatu("set-bg-grey")
-        }
-    }
-    const mouseOverBatuCom = () => {
-        if (hoverBatuCom == null) {
-            setHoverBatuCom("set-bg-grey")
-        }
-    }
-    const mouseOverGunting = () => {
-        if (hoverGuntingCom == null) {
-            setHoverGunting("set-bg-grey")
-        }
-    }
-    const mouseOverGuntingCom = () => {
-        if (hoverGuntingCom == null) {
-            setHoverGuntingCom("set-bg-grey")
-        }
-    }
-    const mouseOverKertas = () => {
-        if (hoverKertas == null) {
-            setHoverKertas("set-bg-grey")
-        }
-    }
-    const mouseOverKertasCom = () => {
-        if (hoverKertasCom == null) {
-            setHoverKertasCom("set-bg-grey")
-        }
-    }
-    const mouseLeave = () => {
-        if (hoverBatu !== null) {
-            setHoverBatu(null)
-        }
-        if (hoverGunting !== null) {
-            setHoverGunting(null)
-        }
-        if (hoverKertas !== null) {
-            setHoverKertas(null)
-        }
-
-    }
-    const mouseLeaveCom = () => {
-        if (hoverBatuCom !== null) {
-            setHoverBatuCom(null)
-        }
-        if (hoverGuntingCom !== null) {
-            setHoverGuntingCom(null)
-        }
-        if (hoverKertasCom !== null) {
-            setHoverKertasCom(null)
-        }
-
-    }
 
 
     const clickBatu = () => {
@@ -100,15 +39,15 @@ const GameSuit = (props) => {
         if (result) {
 
             if (comp === 'batu') {
-                setHoverBatuCom("set-bg-grey")
+                setHoverBatuCom("margin-grey")
                 SetVersus('Draw')
             }
             else if (comp === 'gunting') {
-                setHoverGuntingCom("set-bg-grey")
+                setHoverGuntingCom("margin-grey")
                 SetVersus('Player 1 Win')
             }
             else if (comp === 'kertas') {
-                setHoverKertasCom("set-bg-grey")
+                setHoverKertasCom("margin-grey")
                 SetVersus('Computer Win')
             }
         }
@@ -126,15 +65,15 @@ const GameSuit = (props) => {
         if (result) {
 
             if (comp === 'batu') {
-                setHoverBatuCom("set-bg-grey")
+                setHoverBatuCom("margin-grey")
                 SetVersus('Computer Win')
             }
             else if (comp === 'gunting') {
-                setHoverGuntingCom("set-bg-grey")
+                setHoverGuntingCom("margin-grey")
                 SetVersus('Draw')
             }
             else if (comp === 'kertas') {
-                setHoverKertasCom("set-bg-grey")
+                setHoverKertasCom("margin-grey")
                 SetVersus('Player 1 Win')
             }
         }
@@ -151,15 +90,15 @@ const GameSuit = (props) => {
         if (result) {
 
             if (comp === 'batu') {
-                setHoverBatuCom("set-bg-grey")
+                setHoverBatuCom("margin-grey")
                 SetVersus(`Player 1 Win`)
             }
             else if (comp === 'gunting') {
-                setHoverGuntingCom("set-bg-grey")
+                setHoverGuntingCom("margin-grey")
                 SetVersus('Computer Win')
             }
             else if (comp === 'kertas') {
-                setHoverKertasCom("set-bg-grey")
+                setHoverKertasCom("margin-grey")
                 SetVersus('Draw')
             }
         }
@@ -170,7 +109,6 @@ const GameSuit = (props) => {
         }, 800)
 
     }
-
     const clickButton = () => {
         SetVersus('vs');
     }
@@ -180,38 +118,39 @@ const GameSuit = (props) => {
             <div className="bg-black">
                 <div className="d-flex flex-row less_than ">
                     <div className=" p-2 justify-content-start mark-less ">  &lt;  </div>
-                    <div className=" p-2 justify-content-start "> <img className="size-logo-game" src={logoGame} /> </div>
+                    <div className=" p-2 justify-content-start "> <img className="size-logo-game" src={logoGame} alt={"logoGame"} /> </div>
                     <div className=" p-2 sub_title justify-content-start"> ROCK PAPER SCISSORS </div>
                 </div>
                 <div className="d-flex flex-row justify-content-center">
 
-                    <div className="column margin">
+                    <div className="column">
                         <span className="tag-name-p1"> Player 1 </span>
                         <ElementBatu
                             onClick={() => clickBatu()}
-                            onMouseOver={mouseOverBatu}
-                            onMouseLeave={mouseLeave}
-                            className={hoverBatu} />
+                            // onMouseOver={mouseOverBatu}// berat
+                            // onMouseLeave={mouseLeave}
+                            className={"margin"} />
                         <ElementGunting
                             onClick={() => clickGunting()}
-                            onMouseOver={mouseOverGunting}
-                            onMouseLeave={mouseLeave}
-                            className={hoverGunting} />
+                            // onMouseOver={mouseOverGunting}
+                            // onMouseLeave={mouseLeave}
+                            className={"margin"} />
                         <ElementKertas
                             onClick={() => clickKertas()}
-                            onMouseOver={mouseOverKertas}
-                            onMouseLeave={mouseLeave}
-                            className={hoverKertas} />
+                            // onMouseOver={mouseOverKertas}
+                            // onMouseLeave={mouseLeave}
+                            className={"margin"}/>
                     </div>
 
                     <div>
 
-                        <div className="  ">
-                            <span className="  vs-frame">
+                        <div className={versus === "vs" ? "vs-board" : "result-board" }>
+                        
+                            <span  >
                                 {versus}
                             </span>
                         </div>
-                        <div className="  ">
+                        <div className="  button-board">
                             <Button 
                                 className="button-refresh"
                                 onClick={() => clickButton()}>
@@ -221,14 +160,16 @@ const GameSuit = (props) => {
 
                     </div>
 
-                    <div className="column margin">
+                    <div className="column">
                         <span className="tag-name" > Computer </span>
                         <ElementBatu
-                            className={hoverBatuCom} />
+                            
+                            className={ hoverBatuCom ? hoverBatuCom : "margin"} />
+                            
                         <ElementGunting
-                            className={hoverGuntingCom} />
+                            className={hoverGuntingCom ? hoverGuntingCom : "margin"} />
                         <ElementKertas
-                            className={hoverKertasCom} />
+                            className={hoverKertasCom ? hoverKertasCom : "margin"}  />
                     </div>
                 </div>
             </div>

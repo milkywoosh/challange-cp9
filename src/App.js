@@ -1,5 +1,5 @@
 import "./App.css";
-import GameSuit from "./gamesuit/index.js";
+import GameSuit from "./Pages/GameSuit";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // import Profile from "./Profile/Profile";
