@@ -10,19 +10,21 @@ import { propTypes } from 'react-bootstrap/esm/Image';
 
 
 function ElementBatu(props) {
-  
+
 
     return (
-        <div className="margin-div">
-            <div onMouseOver={props.onMouseOver} 
-                 onMouseLeave={props.onMouseLeave} 
-                 className={props.className}>
+        <div className={props.className}>
+            <div
+            // onMouseOver={props.onMouseOver} 
+            //  onMouseLeave={props.onMouseLeave} 
+            //  className={props.className}
+            >
                 <img
+                    className="batu"
                     id="batuElement"
-                    className="batu margin"
                     src={batu}
                     alt="batu"
-                    onClick={props.onClick}/>
+                    onClick={props.onClick} />
             </div>
         </div>
 

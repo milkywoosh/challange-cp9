@@ -38,77 +38,21 @@ const GameSuit = (props) => {
     const [versus, SetVersus] = useState("vs")
 
 
-    const mouseOverBatu = () => {
-        if (hoverBatu == null) {
-            setHoverBatu("set-bg-grey")
-        }
-    }
-    const mouseOverBatuCom = () => {
-        if (hoverBatuCom == null) {
-            setHoverBatuCom("set-bg-grey")
-        }
-    }
-    const mouseOverGunting = () => {
-        if (hoverGuntingCom == null) {
-            setHoverGunting("set-bg-grey")
-        }
-    }
-    const mouseOverGuntingCom = () => {
-        if (hoverGuntingCom == null) {
-            setHoverGuntingCom("set-bg-grey")
-        }
-    }
-    const mouseOverKertas = () => {
-        if (hoverKertas == null) {
-            setHoverKertas("set-bg-grey")
-        }
-    }
-    const mouseOverKertasCom = () => {
-        if (hoverKertasCom == null) {
-            setHoverKertasCom("set-bg-grey")
-        }
-    }
-    const mouseLeave = () => {
-        if (hoverBatu !== null) {
-            setHoverBatu(null)
-        }
-        if (hoverGunting !== null) {
-            setHoverGunting(null)
-        }
-        if (hoverKertas !== null) {
-            setHoverKertas(null)
-        }
-
-    }
-    const mouseLeaveCom = () => {
-        if (hoverBatuCom !== null) {
-            setHoverBatuCom(null)
-        }
-        if (hoverGuntingCom !== null) {
-            setHoverGuntingCom(null)
-        }
-        if (hoverKertasCom !== null) {
-            setHoverKertasCom(null)
-        }
-
-    }
-
-
     const clickBatu = () => {
         let result = game.suit('batu');
         let comp = game.computer();
         if (result) {
 
             if (comp === 'batu') {
-                setHoverBatuCom("set-bg-grey")
+                setHoverBatuCom("margin-grey")
                 SetVersus('Draw')
             }
             else if (comp === 'gunting') {
-                setHoverGuntingCom("set-bg-grey")
+                setHoverGuntingCom("margin-grey")
                 SetVersus('Player 1 Win')
             }
             else if (comp === 'kertas') {
-                setHoverKertasCom("set-bg-grey")
+                setHoverKertasCom("margin-grey")
                 SetVersus('Computer Win')
             }
         }
@@ -126,15 +70,15 @@ const GameSuit = (props) => {
         if (result) {
 
             if (comp === 'batu') {
-                setHoverBatuCom("set-bg-grey")
+                setHoverBatuCom("margin-grey")
                 SetVersus('Computer Win')
             }
             else if (comp === 'gunting') {
-                setHoverGuntingCom("set-bg-grey")
+                setHoverGuntingCom("margin-grey")
                 SetVersus('Draw')
             }
             else if (comp === 'kertas') {
-                setHoverKertasCom("set-bg-grey")
+                setHoverKertasCom("margin-grey")
                 SetVersus('Player 1 Win')
             }
         }
@@ -151,15 +95,15 @@ const GameSuit = (props) => {
         if (result) {
 
             if (comp === 'batu') {
-                setHoverBatuCom("set-bg-grey")
+                setHoverBatuCom("margin-grey")
                 SetVersus(`Player 1 Win`)
             }
             else if (comp === 'gunting') {
-                setHoverGuntingCom("set-bg-grey")
+                setHoverGuntingCom("margin-grey")
                 SetVersus('Computer Win')
             }
             else if (comp === 'kertas') {
-                setHoverKertasCom("set-bg-grey")
+                setHoverKertasCom("margin-grey")
                 SetVersus('Draw')
             }
         }
@@ -170,7 +114,6 @@ const GameSuit = (props) => {
         }, 800)
 
     }
-
     const clickButton = () => {
         SetVersus('vs');
     }
@@ -185,33 +128,34 @@ const GameSuit = (props) => {
                 </div>
                 <div className="d-flex flex-row justify-content-center">
 
-                    <div className="column margin">
+                    <div className="column">
                         <span className="tag-name-p1"> Player 1 </span>
                         <ElementBatu
                             onClick={() => clickBatu()}
-                            onMouseOver={mouseOverBatu}
-                            onMouseLeave={mouseLeave}
-                            className={hoverBatu} />
+                            // onMouseOver={mouseOverBatu}// berat
+                            // onMouseLeave={mouseLeave}
+                            className={"margin"} />
                         <ElementGunting
                             onClick={() => clickGunting()}
-                            onMouseOver={mouseOverGunting}
-                            onMouseLeave={mouseLeave}
-                            className={hoverGunting} />
+                            // onMouseOver={mouseOverGunting}
+                            // onMouseLeave={mouseLeave}
+                            className={"margin"} />
                         <ElementKertas
                             onClick={() => clickKertas()}
-                            onMouseOver={mouseOverKertas}
-                            onMouseLeave={mouseLeave}
-                            className={hoverKertas} />
+                            // onMouseOver={mouseOverKertas}
+                            // onMouseLeave={mouseLeave}
+                            className={"margin"}/>
                     </div>
 
                     <div>
 
-                        <div className="  ">
-                            <span className="  vs-frame">
+                        <div className={versus === "vs" ? "vs-board" : "result-board" }>
+                        
+                            <span  >
                                 {versus}
                             </span>
                         </div>
-                        <div className="  ">
+                        <div className="  button-board">
                             <Button 
                                 className="button-refresh"
                                 onClick={() => clickButton()}>
@@ -221,14 +165,16 @@ const GameSuit = (props) => {
 
                     </div>
 
-                    <div className="column margin">
+                    <div className="column">
                         <span className="tag-name" > Computer </span>
                         <ElementBatu
-                            className={hoverBatuCom} />
+                            
+                            className={ hoverBatuCom ? hoverBatuCom : "margin"} />
+                            
                         <ElementGunting
-                            className={hoverGuntingCom} />
+                            className={hoverGuntingCom ? hoverGuntingCom : "margin"} />
                         <ElementKertas
-                            className={hoverKertasCom} />
+                            className={hoverKertasCom ? hoverKertasCom : "margin"}  />
                     </div>
                 </div>
             </div>

@@ -10,18 +10,21 @@ import IsWin from './isWin';
 
 function ElementKertas(props) {
 
-    
     return (
-        
-        <div onMouseOver={props.onMouseOver} 
-        onMouseLeave={props.onMouseLeave} 
-        className={props.className}>
-            <img
-                className="kertas margin"
-                src={kertas}
-                alt="kertas"
-                id="idKertas" 
-                onClick={props.onClick}/>
+        <div className={props.className}>
+                <div
+                    // onMouseOver={props.onMouseOver}
+                    // onMouseLeave={props.onMouseLeave}
+                    // className={' ' + props.className} 
+                    >
+                    <img
+                        className="kertas "
+                        src={kertas}
+                        alt="kertas"
+                        id="idKertas"
+                        onClick={props.onClick}
+                    />
+                </div>
         </div>
     )
 }

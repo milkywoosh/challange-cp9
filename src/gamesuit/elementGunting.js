@@ -11,19 +11,19 @@ import IsWin from './isWin';
 function ElementGunting(props) {
 
     return (
-        <div className="margin-div">
-            <div className="margin-div">
-                <div onMouseOver={props.onMouseOver} 
-                 onMouseLeave={props.onMouseLeave} 
-                 className={props.className} >
+        <div className={props.className}>
+                <div 
+                    // onMouseOver={props.onMouseOver}
+                    // onMouseLeave={props.onMouseLeave}
+                    // className={props.className} 
+                    >
                     <img
-                        className="gunting margin"
+                        className="gunting"
                         src={gunting}
                         alt="gunting"
-                        id="idGunting" 
-                        onClick={props.onClick}/>
+                        id="idGunting"
+                        onClick={props.onClick} />
                 </div>
-            </div>
         </div>
 
     )
