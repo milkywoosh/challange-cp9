@@ -1,16 +1,16 @@
 import React from "react";
 import GameCard from "../Components/GameCard";
 import db from "../Services/Firebase";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 const GameListPage = () => {
   const [info, setInfo] = useState([]);
 
-  // Start the fetch operation as soon as
-  // the page loads
-  window.addEventListener("load", () => {
+  // fetch operation as soon as
+  useEffect(() => {
     Fetchdata();
-  });
+  }, []);
 
   // Fetch the required data using the get() method
   const Fetchdata = () => {
@@ -28,10 +28,13 @@ const GameListPage = () => {
 
   return (
     <div>
-      {/* <GameCard title="ini title" description="ini description"></GameCard> */}
-      {info.map((data) => (
-        <GameCard title={data.Title} description={data.Description} />
-      ))}
+      <Container>
+        <div className="card-wrapper">
+          {info.map((data) => (
+            <GameCard title={data.Title} description={data.Description} />
+          ))}
+        </div>
+      </Container>
     </div>
   );
 };
