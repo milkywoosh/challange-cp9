@@ -18,7 +18,7 @@ const NavBar=()=> {
 </Navbar>
 
   <div className="content-home">
-  <h1 style={{color:"white"}}>Welcome To SeTEAM Games</h1>
+  
 
   </div>
  </div>

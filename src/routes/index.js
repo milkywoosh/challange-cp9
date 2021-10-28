@@ -1,6 +1,7 @@
-import Register from '../component/register'
-import Login from '../component/login'
-import LandPage from "../component/landPage";
+import Register from '../Pages/register/index'
+import Login from '../Pages/Login/index'
+import LandPage from "../Pages/Home/index";
+import GameSuit from '../gamesuit';
 
 const routes =[
     {
@@ -13,9 +14,14 @@ const routes =[
         component:<Login/>
     },
     {
-        path:'/land',
+        path:'/landpage',
         component:<LandPage/>
+    },
+    {
+        path:'/gamesuit',
+        component:<GameSuit/>
     }
+
 
 ]
 

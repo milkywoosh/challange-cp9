@@ -1,8 +1,8 @@
 import React,{ useState ,useRef} from "react";
 import {Form,Button, Container,Alert} from 'react-bootstrap'
-import './index.css'
+import './Login.css'
 import { Link , useHistory} from "react-router-dom";
-import {firebaseAuthentication} from "../../base/firebase";
+import {firebaseAuthentication} from "../../services/firebase";
 
 export default function Login(){
     const [error,setError] = useState('')
@@ -13,6 +13,7 @@ export default function Login(){
  async function handleSubmit(e){
     e.preventDefault()
     var errorCode = error.code
+    
         if(errorCode === "auth/worng-password"){
             return setError('Login Failed')
             // baru di console
