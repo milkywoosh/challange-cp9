@@ -2,13 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import routes from '../src/routes/index';
-import NavBar from './component/navbar';
-
+import NavBar from './components/Navbar';
 
 function App() {
-  
   return (
-
 <div>
   
 <Router>
@@ -22,15 +19,11 @@ function App() {
       </Route>
     })
   }
-    
 
 </Switch>
       </div>
     </Router>
 </div>
-
-
-
   );
 }
 

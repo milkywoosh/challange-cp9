@@ -20,7 +20,7 @@ export default function Login(){
         } else {
         await firebaseAuthentication.signInWithEmailAndPassword(emailRef.current.value,passwordRef.current.value)
          alert('SuccessFully Login')
-        history.push('/land')
+        history.push('/landpage')
         }
 }
 
