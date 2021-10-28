@@ -1,11 +1,11 @@
 import React from "react";
 import MyNavbar from "../Components/MyNavbar";
 import { Container, Row, Button, Col, Stack } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
   return (
     <div className="profile-page">
-      <MyNavbar></MyNavbar>
       <Container className="white-text profile-page-container">
         <Row>
           <Col className="col-3">
@@ -38,7 +38,9 @@ const ProfilePage = () => {
         <Row>
           <Col className="col-4 text-left">
             <Button className="btn btn-primary" style={{ fontSize: "16px" }}>
-              Edit Profile
+              <Link to="/editprofile" className="menu-link">
+                Edit Profile
+              </Link>
             </Button>{" "}
           </Col>
         </Row>
