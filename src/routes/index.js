@@ -1,7 +1,7 @@
 import Register from '../Pages/register/index'
 import Login from '../Pages/Login/index'
 import LandPage from "../Pages/Home/index";
-import GameSuit from '../gamesuit';
+import GameSuit from '../Pages/GameSuit';
 
 const routes =[
     {
