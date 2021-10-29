@@ -1,0 +1,22 @@
+form{
+  text-align: center;
+}
+body {
+  background-color: #171a21;
+}
+.mb-3 {
+  max-width:600px ;
+  margin: auto;  
+}
+button {
+  color: #2256ce;
+}
+/* @font-face {
+  font-family: 'SF Pro Display Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF Pro Display Regular'), url('SFPRODISPLAYREGULAR.woff') format('woff');
+  } */
+label {
+  color : #ffff;
+}
