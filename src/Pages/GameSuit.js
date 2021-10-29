@@ -143,7 +143,7 @@ const GameSuit = (props) => {
                     </div>
 
                     <div>
-
+                        <p></p>
                         <div className={versus === "vs" ? "vs-board" : "result-board" }>
                         
                             <span  >
