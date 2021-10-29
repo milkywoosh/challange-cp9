@@ -1,5 +1,4 @@
 import "./App.css";
-import GameSuit from "./gamesuit/index.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -19,7 +18,6 @@ function App() {
         <MyNavbar></MyNavbar>
         <Route path="/profile" component={ProfilePage}></Route>
         <Route path="/editprofile" component={EditProfilePage}></Route>
-        <Route path="/gamesuit" component={GameSuit}></Route>
         <Route path="/games" component={GameListPage}></Route>
         <Route path="/addgame" component={AddGamePage}></Route>
         <Footer></Footer>
