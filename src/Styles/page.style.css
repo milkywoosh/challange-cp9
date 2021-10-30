@@ -1,6 +1,5 @@
 .profile-page {
     color: white;
-    height: 100vh;
 }
 
 .header {
@@ -48,4 +47,39 @@
     font-size: 16px;
     margin-top: 5rem;
     margin-bottom: 5rem;
+}
+
+.edit-profile-page {
+    /* height: 70vh; */
+    color: white;
+    font-size: 16px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.menu-link {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.game-list-page {
+    /* height: 70vh; */
+    color: white;
+    font-size: 16px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 10rem;
+}
+
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.card-bg {
+    background-image: "/public/logo512.png";
 }
