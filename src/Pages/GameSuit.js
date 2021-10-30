@@ -11,21 +11,7 @@ import ElementKertas from '../Components/GameSuitComponent/elementKertas';
 
 const GameSuit = (props) => {
     let game = new Suitclass();
-
-    let linkBootstrap = document.createElement("link");
-    linkBootstrap.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css";
-    linkBootstrap.type = "text/css";
-    linkBootstrap.rel = "stylesheet";
-    linkBootstrap.integrity = "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC";
-    linkBootstrap.crossOrigin = "anonymous";
-    document.getElementsByTagName("head")[0].append(linkBootstrap);
-
-    let scriptBootstrap = document.createElement("script");
-    scriptBootstrap.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js";
-    scriptBootstrap.integrity = "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM";
-    scriptBootstrap.crossOrigin = "anonymous";
-    document.getElementsByTagName("head")[0].append(scriptBootstrap);
-
+    
 
     const [hoverBatuCom, setHoverBatuCom] = useState(null);
     const [hoverGuntingCom, setHoverGuntingCom] = useState(null);
@@ -123,7 +109,7 @@ const GameSuit = (props) => {
                 </div>
                 <div className="d-flex flex-row justify-content-center">
 
-                    <div className="column">
+                    <div className="column ">
                         <span className="tag-name-p1"> Player 1 </span>
                         <ElementBatu
                             onClick={() => clickBatu()}
@@ -139,37 +125,32 @@ const GameSuit = (props) => {
                             onClick={() => clickKertas()}
                             // onMouseOver={mouseOverKertas}
                             // onMouseLeave={mouseLeave}
-                            className={"margin"}/>
+                            className={"margin"} />
                     </div>
 
-                    <div>
-                        <p></p>
-                        <div className={versus === "vs" ? "vs-board" : "result-board" }>
-                        
-                            <span  >
+                    <div className="center-versus ">
+                        <div>
+                            <span className={versus === "vs" ? "vs-board" : "result-board"}>
                                 {versus}
                             </span>
                         </div>
-                        <div className="  button-board">
-                            <Button 
-                                className="button-refresh"
+                        <div className="margin-vs-refresh">
+                            <Button
+                                className="button-refresh "
                                 onClick={() => clickButton()}>
                                 Refresh
                             </Button>
                         </div>
-
                     </div>
 
                     <div className="column">
                         <span className="tag-name" > Computer </span>
                         <ElementBatu
-                            
-                            className={ hoverBatuCom ? hoverBatuCom : "margin"} />
-                            
+                            className={hoverBatuCom ? hoverBatuCom : "margin"} />
                         <ElementGunting
                             className={hoverGuntingCom ? hoverGuntingCom : "margin"} />
                         <ElementKertas
-                            className={hoverKertasCom ? hoverKertasCom : "margin"}  />
+                            className={hoverKertasCom ? hoverKertasCom : "margin"} />
                     </div>
                 </div>
             </div>
