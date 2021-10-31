@@ -1,4 +1,4 @@
-import Register from '../Pages/register/index'
+import Register from '../Pages/register/Sign-up'
 import Login from '../Pages/Login/index'
 import LandPage from "../Pages/Home/index";
 import GameSuit from '../Pages/GameSuit';
