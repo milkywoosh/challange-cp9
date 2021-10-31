@@ -2,7 +2,9 @@ import React, { useState, useRef } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
-import { firebaseAuthentication } from "../../services/firebase";
+// import { firebaseAuthentication } from "../../Services/firebase";
+import firebase from "../../Services/firebase";
+const firebaseAuthentication = firebase.auth();
 
 export default function Login() {
   const [error, setError] = useState("");
