@@ -9,9 +9,17 @@ import ElementBatu from '../Components/GameSuitComponent/elementBatu';
 import ElementGunting from '../Components/GameSuitComponent/elementGunting';
 import ElementKertas from '../Components/GameSuitComponent/elementKertas';
 import RefreshNotif from './RefreshNotificationGame';
+import CurrTime from '../Components/GetDate';
+import firebase from 'firebase';
+
 
 const GameSuit = (props) => {
     let game = new Suitclass();
+    let dataToDB = {
+        match: [],
+        time: CurrTime,
+        result: "",
+    }
 
     const [hoverBatuCom, setHoverBatuCom] = useState(null);
     const [hoverGuntingCom, setHoverGuntingCom] = useState(null);
@@ -20,8 +28,20 @@ const GameSuit = (props) => {
     const [matchResult, setMatchResult] = useState([])
     const [stop, setStopped] = useState(false)
     const [show, setShow] = useState(false);
-    
+    const [intoDB, setIntoDB] = useState(dataToDB);
+    let counts = {}
 
+    const addData = obj => {
+        if (matchResult.length === 3) {
+            firebase.database().ref().child('data_match').push(
+                obj,
+                err => {
+                    if (err)
+                        console.log(err)
+                }
+            )
+        }
+    }
     // use useEffect multiple time/ line in code to based on different cases
     useEffect(() => {
 
@@ -33,32 +53,44 @@ const GameSuit = (props) => {
 
     useEffect(() => {
         // alert(`${hoverBatuCom}, ${hoverGuntingCom}, ${hoverKertasCom}`)
-        console.log(matchResult.length)
+        // console.log(matchResult.length)
         if (matchResult.length === 3) {
             setStopped(true);
             handleShow()
+            dataToDB.match.forEach((x) => {
+                counts[x] = (counts[x] || 0) + 1;
+            })
             
+            if (counts["menang"] > counts["kalah"]) {
+                dataToDB.result = "menang"
+            } else if (counts["menang"] < counts["kalah"]) {
+                dataToDB.result="kalah"
+            } else if ((counts["seri"] > counts["menang"]) || counts["seri"] > counts["kalah"]) {
+                dataToDB.result="seri"
+            }
+            dataToDB.match.push(...matchResult)
+            console.log( {...counts})
+            console.log(dataToDB.match)
+            console.log(dataToDB.time)
+            
+            addData(dataToDB) // add data to database
+
         }
         setTimeout(() => {
             setHoverBatuCom(null)
             setHoverGuntingCom(null)
             setHoverKertasCom(null)
-        }, 800)
+        }, 1000)
         return (() => {
             console.log('clean up')
         })
     }, [matchResult]) // run every state at dependency variable change
 
-    const setPopUp = () => {
-        return true;
-    }
     //    (matchResult.length < 3) &&
     const clickBatu = () => {
         let result = game.suit('batu');
         let comp = game.computer();
         if ((stop === false)) {
-
-
             if (comp === 'batu') {
                 setHoverBatuCom("margin-grey")
                 SetVersus('Draw')
@@ -125,7 +157,7 @@ const GameSuit = (props) => {
     }
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
-
+   
     return (
         <>
             <div className="bg-black">
@@ -163,11 +195,11 @@ const GameSuit = (props) => {
                             </Button>
                         </div>
                         <div>
-                            <RefreshNotif 
+                            <RefreshNotif
                                 show={show}
                                 onHide={handleClose}
                                 onClick={handleClose}
-                                />
+                            />
                         </div>
                     </div>
 
