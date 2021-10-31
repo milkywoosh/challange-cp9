@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import "../Styles/game.index.style.css"
 import "../Styles/game.element.style.css"
@@ -8,21 +8,56 @@ import { Suitclass } from '../Components/GameSuitComponent/suit';
 import ElementBatu from '../Components/GameSuitComponent/elementBatu';
 import ElementGunting from '../Components/GameSuitComponent/elementGunting';
 import ElementKertas from '../Components/GameSuitComponent/elementKertas';
+import RefreshNotif from './RefreshNotificationGame';
 
 const GameSuit = (props) => {
     let game = new Suitclass();
-    
 
     const [hoverBatuCom, setHoverBatuCom] = useState(null);
     const [hoverGuntingCom, setHoverGuntingCom] = useState(null);
     const [hoverKertasCom, setHoverKertasCom] = useState(null);
     const [versus, SetVersus] = useState("vs")
+    const [matchResult, setMatchResult] = useState([])
+    const [stop, setStopped] = useState(false)
+    const [show, setShow] = useState(false);
+    
 
+    // use useEffect multiple time/ line in code to based on different cases
+    useEffect(() => {
 
+    }, [])// run ONCE at first render
+
+    useEffect(() => {
+        console.log("stop: ", stop)
+    }) // run every rendering DOM
+
+    useEffect(() => {
+        // alert(`${hoverBatuCom}, ${hoverGuntingCom}, ${hoverKertasCom}`)
+        console.log(matchResult.length)
+        if (matchResult.length === 3) {
+            setStopped(true);
+            handleShow()
+            
+        }
+        setTimeout(() => {
+            setHoverBatuCom(null)
+            setHoverGuntingCom(null)
+            setHoverKertasCom(null)
+        }, 800)
+        return (() => {
+            console.log('clean up')
+        })
+    }, [matchResult]) // run every state at dependency variable change
+
+    const setPopUp = () => {
+        return true;
+    }
+    //    (matchResult.length < 3) &&
     const clickBatu = () => {
         let result = game.suit('batu');
         let comp = game.computer();
-        if (result) {
+        if ((stop === false)) {
+
 
             if (comp === 'batu') {
                 setHoverBatuCom("margin-grey")
@@ -36,19 +71,14 @@ const GameSuit = (props) => {
                 setHoverKertasCom("margin-grey")
                 SetVersus('Computer Win')
             }
+            let joined = matchResult.concat([result])
+            setMatchResult(joined)
         }
-        setTimeout(() => {
-            setHoverBatuCom(null)
-            setHoverGuntingCom(null)
-            setHoverKertasCom(null)
-        }, 800)
-
     }
-
     const clickGunting = () => {
         let result = game.suit('gunting');
         let comp = game.computer();
-        if (result) {
+        if ((stop === false)) {
 
             if (comp === 'batu') {
                 setHoverBatuCom("margin-grey")
@@ -62,19 +92,14 @@ const GameSuit = (props) => {
                 setHoverKertasCom("margin-grey")
                 SetVersus('Player 1 Win')
             }
+            let joined = matchResult.concat([result])
+            setMatchResult(joined)
         }
-        setTimeout(() => {
-            setHoverBatuCom(null)
-            setHoverGuntingCom(null)
-            setHoverKertasCom(null)
-        }, 800)
-
     }
     const clickKertas = () => {
         let result = game.suit('kertas');
         let comp = game.computer();
-        if (result) {
-
+        if ((stop === false)) {
             if (comp === 'batu') {
                 setHoverBatuCom("margin-grey")
                 SetVersus(`Player 1 Win`)
@@ -87,17 +112,19 @@ const GameSuit = (props) => {
                 setHoverKertasCom("margin-grey")
                 SetVersus('Draw')
             }
+
+            let joined = matchResult.concat(result)
+            setMatchResult(joined)
         }
-        setTimeout(() => {
-            setHoverBatuCom(null)
-            setHoverGuntingCom(null)
-            setHoverKertasCom(null)
-        }, 800)
+    }
+    const refreshButton = () => {
+        SetVersus('vs');
+        setMatchResult([])
+        setStopped(false)
 
     }
-    const clickButton = () => {
-        SetVersus('vs');
-    }
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true);
 
     return (
         <>
@@ -113,18 +140,12 @@ const GameSuit = (props) => {
                         <span className="tag-name-p1"> Player 1 </span>
                         <ElementBatu
                             onClick={() => clickBatu()}
-                            // onMouseOver={mouseOverBatu}// berat
-                            // onMouseLeave={mouseLeave}
                             className={"margin"} />
                         <ElementGunting
                             onClick={() => clickGunting()}
-                            // onMouseOver={mouseOverGunting}
-                            // onMouseLeave={mouseLeave}
                             className={"margin"} />
                         <ElementKertas
                             onClick={() => clickKertas()}
-                            // onMouseOver={mouseOverKertas}
-                            // onMouseLeave={mouseLeave}
                             className={"margin"} />
                     </div>
 
@@ -137,9 +158,16 @@ const GameSuit = (props) => {
                         <div className="margin-vs-refresh">
                             <Button
                                 className="button-refresh "
-                                onClick={() => clickButton()}>
+                                onClick={() => refreshButton()}>
                                 Refresh
                             </Button>
+                        </div>
+                        <div>
+                            <RefreshNotif 
+                                show={show}
+                                onHide={handleClose}
+                                onClick={handleClose}
+                                />
                         </div>
                     </div>
 
