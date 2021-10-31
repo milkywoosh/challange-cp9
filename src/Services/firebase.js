@@ -1,6 +1,6 @@
 
 
-/*
+
 import firebase from "firebase";
 
 // Your web app's Firebase configuration
@@ -13,14 +13,15 @@ const firebaseConfig = {
   appId: "1:82988133754:web:24635e1d054fc4e1cf7ac3",
 };
 // Initialize Firebase
-const init = firebase.initializeApp(firebaseConfig);
-export const firebaseAuthentication = init.auth();
-*/
+firebase.initializeApp(firebaseConfig);
+// export const firebaseAuthentication = init.auth();
+
 
 
 
 
 // lukman firebase config
+/*
 import firebase from 'firebase';
 
 const firebaseConfig = {
@@ -34,6 +35,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+*/
 
 export default firebase;
 
