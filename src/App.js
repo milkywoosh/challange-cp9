@@ -2,8 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "../src/routes/index";
-import NavBar from "./components/Navbar.js";
-import Footer from "./components/Footer.js";
+import NavBar from "../src/components/Navbar.js";
+import Footer from "../src/components/Footer.js";
 
 function App() {
   return (
