@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 import "../Styles/game.index.style.css"
@@ -9,7 +10,7 @@ import ElementBatu from '../components/GameSuitComponent/elementBatu';
 import ElementGunting from '../components/GameSuitComponent/elementGunting';
 import ElementKertas from '../components/GameSuitComponent/elementKertas';
 import RefreshNotif from './RefreshNotificationGame';
-import CurrTime from '../Components/GetDate';
+import CurrTime from '../components/GetDate.js';
 import firebase from 'firebase';
 
 
