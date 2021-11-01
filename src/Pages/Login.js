@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
-import "./Login.css";
+import '../Styles/Login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory } from "react-router-dom";
-// import { firebaseAuthentication } from "../../Services/firebase";
-import firebase from "../../Services/firebase";
+// import { firebaseAu../Services/firebase/../Services/firebase";
+import firebase from "../Services/firebase";
 const firebaseAuthentication = firebase.auth();
 
 export default function Login() {
@@ -30,14 +31,13 @@ export default function Login() {
   }
 
   return (
-    <Container>
+    <div className="login, login-header">
       <Form className="register" onSubmit={handleSubmit}>
-        <h1 style={{ color: "white" }}> Login </h1>
+      <h1 className="text"><img src="/smoke.png" alt="SeTeam Logo" height="64px" /> SeTeam</h1>
         {error && <Alert variant="danger">{error}</Alert>}
-
-        <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
+        <Form.Group controlId="username">
+        <Form.Label className="label">Email</Form.Label>
+          <Form.Control className="input"
             type="username"
             ref={emailRef}
             placeholder="Enter Email"
@@ -47,9 +47,9 @@ export default function Login() {
           <Form.Text></Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+        <Form.Group controlId="email">
+        <Form.Label className="label">Password</Form.Label>
+          <Form.Control className="input"
             type="password"
             ref={passwordRef}
             placeholder="Password"
@@ -59,15 +59,9 @@ export default function Login() {
           <Form.Text></Form.Text>
         </Form.Group>
 
-        <Button type="submit">Login </Button>
-        <br />
-        <br />
-        <br />
-        <p style={{ color: "white" }}>
-          Do not have an account ? Please <Link to="/register"> Register </Link>{" "}
-          First
-        </p>
-      </Form>
-    </Container>
+        <Button className="button" type="submit">Login </Button>
+        </Form>
+        <Form.Label> <Link to="/register" color="inherit"> Don't have an account? SIGN UP NOW </Link> </Form.Label>
+    </div>
   );
 }

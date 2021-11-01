@@ -1,6 +1,5 @@
 import React from 'react';
-import './Landing.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Styles/Landing.css';
 import {
     Navbar,
     Container,
@@ -13,7 +12,7 @@ import {
     Carousel
 } from 'react-bootstrap';
 
-import Logo from './Aset/smoke.png';
+
 import Img from './Aset/2077.png';
 import Img1 from './Aset/Group 46.png';
 import Img2 from './Aset/Group 47.png';
@@ -24,9 +23,9 @@ import Img5 from './Aset/image 43.png';
 function Landing() {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="gray" variant="dark">
+            {/* <Navbar collapseOnSelect expand="lg" bg="gray" variant="dark">
                 <Container>
-                    <Nav><img src={Logo} href="/"></img></Nav>
+                    <Nav><img src="/smoke.png" href="/"></img></Nav>
                     <Navbar.Brand className="text_seteam" href="/">SeTeam</Navbar.Brand>
                     <Nav className="ms-auto">
                         <Button variant="outline-success" href="/register">Sign Up</Button>
@@ -61,27 +60,27 @@ function Landing() {
                         />
                     </Form>
                 </Container>
-            </Navbar>
+            </Navbar> */}
             <body>
                 <Carousel>
                     <Carousel.Item>
                         <img
                             className="carousel-inner"
-                            src={Img5}
+                            src="/image-43.png"
                             alt="First slide"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="carousel-inner"
-                            src={Img}
+                            src="/2077.png"
                             alt="Second slide"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="carousel-inner"
-                            src={Img}
+                            src="/2077.png"
                             alt="Third slide"
                         />
                     </Carousel.Item>
@@ -89,10 +88,10 @@ function Landing() {
                 <h1 className="featured-text" style={{ fontSize: "medium", fontWeight: "bold" }}>
                     Featured Games
                 </h1>
-                <img src={Img1}></img>
-                <img src={Img2}></img>
-                <img src={Img3}></img>
-                <img src={Img4}></img>
+                <img src="/group-46"></img>
+                <img src="/group-47"></img>
+                <img src="/group-48"></img>
+                <img src="/group-49"></img>
                 <Button className="button-all-game" variant="outline-success" href="/">Show All Game</Button>
                 <Navbar fixed="bottom" expand="dark" variant="dark" bg="gray">
                     <Container className="buttomnavbar">
