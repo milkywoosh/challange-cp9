@@ -2,7 +2,8 @@
   "name": "project-group1",
   "version": "0.1.0",
   "engines": {
-    "node": "14.17.0"
+    "node": "14.x",
+    "npm": "6.x"
   },
   "private": true,
   "dependencies": {
