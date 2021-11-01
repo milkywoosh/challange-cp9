@@ -1,0 +1,43 @@
+body{
+    background-color: #171A21;
+    ;
+}
+
+.text_seteam {
+    margin-left: 10px;
+}
+
+.carousel-inner {
+    width: 50%;
+    height: 50%;
+    margin-left: 240px;
+    margin-top: 1px;
+}
+
+.featured-text {
+    color: white;
+    margin-left: 25px;
+}
+
+.button-all-game {
+    margin-left: 570px;
+    margin-top: 30px;
+}
+
+.navbar-dropdown {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.buttomnavbar {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.navbartext {
+    font-size: 10px;
+}

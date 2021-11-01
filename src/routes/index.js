@@ -1,6 +1,6 @@
 import Register from '../Pages/register/Sign-up'
 import Login from '../Pages/Login/index'
-import LandPage from "../Pages/Home/index";
+import LandPage from "../Pages/Landing/Landing";
 import GameSuit from '../Pages/GameSuit';
 
 const routes =[
