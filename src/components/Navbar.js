@@ -18,7 +18,7 @@ const NavBar = () => {
           <Navbar.Brand className="text_seteam" href="/">SeTeam</Navbar.Brand>
           <Nav className="ms-auto">
             <Button variant="outline-success" href="/signup">Sign Up</Button>
-            <Nav.Link href="/Login">Login</Nav.Link>
+            <Button variant="outline-success" href="/login">Login</Button>
           </Nav>
         </Container>
       </Navbar>
