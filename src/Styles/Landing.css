@@ -8,10 +8,10 @@ body{
 }
 
 .carousel-inner {
+    max-height: 200px !important;
     width: 50%;
-    height: 50%;
-    margin-left: 240px;
-    margin-top: 1px;
+    display: block;
+    margin:auto
 }
 
 .featured-text {
