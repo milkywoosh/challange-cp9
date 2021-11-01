@@ -21,7 +21,7 @@ const routes =[
     },
     {
         path:'/landpage',
-        component:<LandPage/>
+        component:<Landing/>
     },
     {
         path:'/gamesuit',

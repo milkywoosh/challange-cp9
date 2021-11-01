@@ -6,8 +6,7 @@ import {
   NavDropdown,
   Form,
   FormControl,
-  Offcanvas,
-  Carousel
+  Offcanvas
 } from 'react-bootstrap';
 
 const NavBar = () => {
@@ -18,7 +17,7 @@ const NavBar = () => {
           <Nav><img src="/smoke.png" href="/"></img></Nav>
           <Navbar.Brand className="text_seteam" href="/">SeTeam</Navbar.Brand>
           <Nav className="ms-auto">
-            <Button variant="outline-success" href="/register">Sign Up</Button>
+            <Button variant="outline-success" href="/signup">Sign Up</Button>
             <Nav.Link href="/Login">Login</Nav.Link>
           </Nav>
         </Container>
