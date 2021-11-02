@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Form } from "react-bootstrap";
 import "../Styles/page.style.css";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 
 const MyNavbar = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const MyNavbar = () => {
               }}
             ></AiOutlineMenu>
             <div>
-              <Link to="/games" className="menu-link">
+              <Link to="/" className="menu-link">
                 Games
               </Link>
             </div>
