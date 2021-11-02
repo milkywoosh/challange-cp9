@@ -1,6 +1,3 @@
-
-
-
 import firebase from "firebase";
 
 // Your web app's Firebase configuration
@@ -12,13 +9,10 @@ const firebaseConfig = {
   messagingSenderId: "82988133754",
   appId: "1:82988133754:web:24635e1d054fc4e1cf7ac3",
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 // export const firebaseAuthentication = init.auth();
-
-
-
-
 
 // lukman firebase config
 /*
@@ -38,4 +32,3 @@ firebase.initializeApp(firebaseConfig);
 */
 
 export default firebase;
-

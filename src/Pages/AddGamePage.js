@@ -1,29 +1,29 @@
 import { useState, React } from "react";
-import db from "../Services/Firebase";
+// import db from "../Services/Firebase";
 
 const AddGamePage = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDesc] = useState("");
-  const sub = (e) => {
-    e.preventDefault();
+  // const [title, setTitle] = useState("");
+  // const [description, setDesc] = useState("");
+  // const sub = (e) => {
+  //   e.preventDefault();
 
-    // Add data to the store
-    db.collection("games")
-      .add({
-        Title: title,
-        Description: description,
-      })
-      .then((docRef) => {
-        alert("Data Successfully Submitted");
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  };
+  //   // Add data to the store
+  //   db.collection("games")
+  //     .add({
+  //       Title: title,
+  //       Description: description,
+  //     })
+  //     .then((docRef) => {
+  //       alert("Data Successfully Submitted");
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding document: ", error);
+  //     });
+  // };
 
   return (
     <div className="profile-page">
-      <center>
+      {/* <center>
         <form
           onSubmit={(event) => {
             sub(event);
@@ -50,7 +50,7 @@ const AddGamePage = () => {
           <br />
           <button type="submit">Submit</button>
         </form>
-      </center>
+      </center> */}
     </div>
   );
 };
