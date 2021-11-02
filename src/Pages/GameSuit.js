@@ -49,13 +49,13 @@ const GameSuit = (props) => {
     }, [])// run ONCE at first render
 
     useEffect(() => {
-        console.log("stop: ", stop)
+
     }) // run every rendering DOM
 
     useEffect(() => {
-        // alert(`${hoverBatuCom}, ${hoverGuntingCom}, ${hoverKertasCom}`)
-        // console.log(matchResult.length)
+
         if (matchResult.length === 3) {
+            
             setStopped(true);
             handleShow()
             dataToDB.match.forEach((x) => {
@@ -69,13 +69,13 @@ const GameSuit = (props) => {
             } else if ((counts["seri"] > counts["menang"]) || counts["seri"] > counts["kalah"]) {
                 dataToDB.result="seri"
             }
+            
             dataToDB.match.push(...matchResult)
             console.log( {...counts})
             console.log(dataToDB.match)
             console.log(dataToDB.time)
             
             addData(dataToDB) // add data to database
-
         }
         setTimeout(() => {
             setHoverBatuCom(null)
@@ -83,7 +83,7 @@ const GameSuit = (props) => {
             setHoverKertasCom(null)
         }, 1000)
         return (() => {
-            console.log('clean up')
+           
         })
     }, [matchResult]) // run every state at dependency variable change
 
@@ -151,10 +151,11 @@ const GameSuit = (props) => {
         }
     }
     const refreshButton = () => {
+        
         SetVersus('vs');
         setMatchResult([])
         setStopped(false)
-
+        window.location.reload()
     }
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
