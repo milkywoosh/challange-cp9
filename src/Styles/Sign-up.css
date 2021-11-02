@@ -1,0 +1,44 @@
+.registerbg {
+  background-color: #171A21;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.label {
+  font-size: small;
+}
+
+.textsignup {
+  font-size: large;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.navbartext {
+  font-size: 10px;
+}
+
+.mb-3 {
+  font-size: 10px;
+}
+
+.button {
+  margin-top: -20px;
+  width: 200px;
+}
+
+.form {
+  margin-top: -90px;
+}
+
+.buttomnavbar {
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: darkgray;
+}
