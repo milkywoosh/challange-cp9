@@ -2,17 +2,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "../src/routes/index";
-
+// import NavBar from "../src/Components/Navbar.js";
+import Footer from "../src/Components/Footer.js";
 // import NavBar from "./components/Navbar";
-import Landing from "./Pages/Landing/Landing";
 
 
 function App() {
   return (
     <Router>
-      <div>
+        {/* <NavBar /> */}
         <Switch>
-          <Route exact path="/" component={Landing} />
           {routes.map((route) => {
             return (
               <Route exact={route.exact} path={route.path}>
@@ -21,7 +20,7 @@ function App() {
             );
           })}
         </Switch>
-      </div>
+      <Footer></Footer>
     </Router>
   );
 }

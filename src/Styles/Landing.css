@@ -8,20 +8,15 @@ body{
 }
 
 .carousel-inner {
+    max-height: 200px !important;
     width: 50%;
-    height: 50%;
-    margin-left: 240px;
-    margin-top: 1px;
+    display: block;
+    margin:auto
 }
 
 .featured-text {
     color: white;
     margin-left: 25px;
-}
-
-.button-all-game {
-    margin-left: 570px;
-    margin-top: 30px;
 }
 
 .navbar-dropdown {
