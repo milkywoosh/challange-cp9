@@ -117,23 +117,23 @@ margin-top: 10px;
 
 
 .less_than {
-margin-left: 20px;
-font-family: SF Pro Display;
-width: 600px; /* the bigger the font, the wider it needs */
-/* height: 50px; */
-/* letter-spacing: 0.1em; */
-/* text-transform: uppercase; */
-text-align:left;
+  margin-left: 30px;
+  font-family: SF Pro Display;
+  width: 600px; /* the bigger the font, the wider it needs */
+  /* height: 50px; */
+  /* letter-spacing: 0.1em; */
+  /* text-transform: uppercase; */
+  text-align:left;
 
-color: #ECEFF4;
-font-size: 30px; 
-font-weight: bold;
-align-items: center;
+  color: #ECEFF4;
+  font-size: 30px; 
+  font-weight: bold;
+  align-items: center;
 
 }
 
 .mark-less {
-font-size: 40px;
+font-size: 30px;
 }
 
 .size-logo-game {

@@ -163,9 +163,9 @@ const GameSuit = (props) => {
         <>
             <div className="bg-black">
                 <div className="d-flex flex-row less_than ">
-                    <div className=" p-2 justify-content-start mark-less ">  &lt;  </div>
+                    <div > <a className=" p-2 justify-content-start mark-less " href="/"> &lt; </a> Home </div>
                     <div className=" p-2 justify-content-start "> <img className="size-logo-game" src={logoGame} alt={"logoGame"} /> </div>
-                    <div className=" p-2 sub_title justify-content-start"> ROCK PAPER SCISSORS </div>
+                    <div className=" p-2  justify-content-start"> ROCK PAPER SCISSORS </div>
                 </div>
                 <div className="d-flex flex-row justify-content-center">
 

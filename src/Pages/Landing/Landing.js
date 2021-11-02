@@ -50,7 +50,7 @@ function Landing() {
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
-                    <Nav.Link style={{ color: "white" }} href="/">Games</Nav.Link>
+                    <Nav.Link style={{ color: "white" }} href="/gamesuit">Games</Nav.Link>
                     <Nav.Link style={{ color: "white" }} href='/'>Featured Games</Nav.Link>
                     <Form className="d-flex me-auto">
                         <FormControl
