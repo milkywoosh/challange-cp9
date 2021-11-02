@@ -1,6 +1,8 @@
 import Signup from '../Pages/Register'
 import Login from '../Pages/Login'
 import LandPage from "../Pages/Home";
+import Login from '../Pages/Login/index'
+import LandPage from "../Pages/Landing/Landing";
 import GameSuit from '../Pages/GameSuit';
 import Landing from '../Pages/Landing';
 // import AddGame from '../Pages/AddGamePage';

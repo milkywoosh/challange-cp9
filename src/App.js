@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "../src/routes/index";
 // import NavBar from "../src/Components/Navbar.js";
 import Footer from "../src/Components/Footer.js";
+// import NavBar from "./components/Navbar";
+
 
 function App() {
   return (
