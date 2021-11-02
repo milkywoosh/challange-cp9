@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
-import "./signup.css";
+import "../Styles/signup.css";
 import { Link, useHistory } from "react-router-dom";
 // import { firebaseAuthentication } from "../../Services/firebase";
-import firebase from "../../Services/firebase";
+import firebase from "../Services/firebase";
 const firebaseAuthentication = firebase.auth();
 // logic 2
 export default function Register() {

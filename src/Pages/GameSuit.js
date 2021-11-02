@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 
 import "../Styles/game.index.style.css"
 import "../Styles/game.element.style.css"
-import logoGame from '../components/GameSuitComponent/logoGame.png';
+import logoGame from '../Components/GameSuitComponent/logoGame.png';
 import { Button } from 'react-bootstrap'
-import { Suitclass } from '../components/GameSuitComponent/suit';
-import ElementBatu from '../components/GameSuitComponent/elementBatu';
-import ElementGunting from '../components/GameSuitComponent/elementGunting';
-import ElementKertas from '../components/GameSuitComponent/elementKertas';
+import { Suitclass } from '../Components/GameSuitComponent/suit';
+import ElementBatu from '../Components/GameSuitComponent/elementBatu';
+import ElementGunting from '../Components/GameSuitComponent/elementGunting';
+import ElementKertas from '../Components/GameSuitComponent/elementKertas';
 import RefreshNotif from './RefreshNotificationGame';
 
 const GameSuit = (props) => {

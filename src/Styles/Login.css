@@ -1,20 +1,9 @@
-App {
+  .login {
     text-align: left;
   }
   
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: black;
+  .login-header {
+    background-color: transparent;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,19 +11,10 @@ App {
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  .App-link1 {
-    color: lightcoral;
-  }
-  
-  
+}
+
   .label {
-    font-size: 22px;
+    font-size: 24px;
   }
   
   .button {
@@ -42,7 +22,7 @@ App {
   }
   
   .text {
-    font-size: 40px;
+    font-size: 60px;
   }
   
   .logo {
@@ -52,6 +32,16 @@ App {
   
   .login-container{
     margin: center;
+  }
+
+  .button{
+    margin: center;
+    font-size: 24px;
+  }
+
+  .input{
+    margin: center;
+    font-size: 28px;
   }
   
   a{
