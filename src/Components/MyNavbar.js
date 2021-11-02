@@ -24,7 +24,7 @@ const MyNavbar = () => {
               }}
             ></AiOutlineMenu>
             <div>
-              <Link to="/games" className="menu-link">
+              <Link to="/" className="menu-link">
                 Games
               </Link>
             </div>

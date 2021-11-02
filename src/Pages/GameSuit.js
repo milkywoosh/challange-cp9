@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 import "../Styles/game.index.style.css"
@@ -9,9 +10,17 @@ import ElementBatu from '../Components/GameSuitComponent/elementBatu';
 import ElementGunting from '../Components/GameSuitComponent/elementGunting';
 import ElementKertas from '../Components/GameSuitComponent/elementKertas';
 import RefreshNotif from './RefreshNotificationGame';
+import CurrTime from '../components/GetDate.js';
+import firebase from 'firebase';
+
 
 const GameSuit = (props) => {
     let game = new Suitclass();
+    let dataToDB = {
+        match: [],
+        time: CurrTime,
+        result: "",
+    }
 
     const [hoverBatuCom, setHoverBatuCom] = useState(null);
     const [hoverGuntingCom, setHoverGuntingCom] = useState(null);
@@ -20,45 +29,69 @@ const GameSuit = (props) => {
     const [matchResult, setMatchResult] = useState([])
     const [stop, setStopped] = useState(false)
     const [show, setShow] = useState(false);
-    
+    const [intoDB, setIntoDB] = useState(dataToDB);
+    let counts = {}
 
+    const addData = obj => {
+        if (matchResult.length === 3) {
+            firebase.database().ref().child('data_match').push(
+                obj,
+                err => {
+                    if (err)
+                        console.log(err)
+                }
+            )
+        }
+    }
     // use useEffect multiple time/ line in code to based on different cases
     useEffect(() => {
 
     }, [])// run ONCE at first render
 
     useEffect(() => {
-        console.log("stop: ", stop)
+
     }) // run every rendering DOM
 
     useEffect(() => {
-        // alert(`${hoverBatuCom}, ${hoverGuntingCom}, ${hoverKertasCom}`)
-        console.log(matchResult.length)
+
         if (matchResult.length === 3) {
+            
             setStopped(true);
             handleShow()
+            dataToDB.match.forEach((x) => {
+                counts[x] = (counts[x] || 0) + 1;
+            })
             
+            if (counts["menang"] > counts["kalah"]) {
+                dataToDB.result = "menang"
+            } else if (counts["menang"] < counts["kalah"]) {
+                dataToDB.result="kalah"
+            } else if ((counts["seri"] > counts["menang"]) || counts["seri"] > counts["kalah"]) {
+                dataToDB.result="seri"
+            }
+            
+            dataToDB.match.push(...matchResult)
+            console.log( {...counts})
+            console.log(dataToDB.match)
+            console.log(dataToDB.time)
+            
+            addData(dataToDB) // add data to database
         }
         setTimeout(() => {
             setHoverBatuCom(null)
             setHoverGuntingCom(null)
             setHoverKertasCom(null)
-        }, 800)
+        }, 1000)
         return (() => {
-            console.log('clean up')
+           
         })
     }, [matchResult]) // run every state at dependency variable change
 
-    const setPopUp = () => {
-        return true;
-    }
     //    (matchResult.length < 3) &&
     const clickBatu = () => {
         let result = game.suit('batu');
         let comp = game.computer();
         if ((stop === false)) {
-
-
             if (comp === 'batu') {
                 setHoverBatuCom("margin-grey")
                 SetVersus('Draw')
@@ -118,21 +151,22 @@ const GameSuit = (props) => {
         }
     }
     const refreshButton = () => {
+        
         SetVersus('vs');
         setMatchResult([])
         setStopped(false)
-
+        window.location.reload()
     }
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
-
+   
     return (
         <>
             <div className="bg-black">
                 <div className="d-flex flex-row less_than ">
-                    <div className=" p-2 justify-content-start mark-less ">  &lt;  </div>
+                    <div > <a className=" p-2 justify-content-start mark-less " href="/"> &lt; </a> Home </div>
                     <div className=" p-2 justify-content-start "> <img className="size-logo-game" src={logoGame} alt={"logoGame"} /> </div>
-                    <div className=" p-2 sub_title justify-content-start"> ROCK PAPER SCISSORS </div>
+                    <div className=" p-2  justify-content-start"> ROCK PAPER SCISSORS </div>
                 </div>
                 <div className="d-flex flex-row justify-content-center">
 
@@ -163,11 +197,11 @@ const GameSuit = (props) => {
                             </Button>
                         </div>
                         <div>
-                            <RefreshNotif 
+                            <RefreshNotif
                                 show={show}
                                 onHide={handleClose}
                                 onClick={handleClose}
-                                />
+                            />
                         </div>
                     </div>
 
