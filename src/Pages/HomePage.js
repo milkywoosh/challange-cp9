@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Card, Container, Carousel, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import GameCard from "../Components/GameCard";
 import bg from "../Assets/thumbnail-big.png";
 import bg2 from "../Assets/thumbnail-big-2.jpg";
@@ -78,6 +79,13 @@ const HomePage = () => {
           <GameCard title="title" description="overview" bg={bg3}></GameCard>
           <GameCard title="title" description="overview"></GameCard>
           <GameCard title="title" description="overview" bg={bg4}></GameCard>
+        </div>
+        <div className="text-center">
+          <Button variant="success">
+            <Link to="/games" className="menu-link">
+              Show All Games
+            </Link>
+          </Button>
         </div>
       </Container>
     </div>
