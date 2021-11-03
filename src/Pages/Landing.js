@@ -1,12 +1,10 @@
 import React from "react";
 import "../Styles/Landing.css";
 import { Button, Carousel, Container, Row, Col } from "react-bootstrap";
-import Navbar from "../Components/Navbar";
 
 function Landing() {
   return (
     <div>
-      {/* <Navbar /> */}
       <Container>
         <Row className="justify-content-md-center">
           <Col>

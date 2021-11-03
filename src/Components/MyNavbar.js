@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Stack, Form } from "react-bootstrap";
 import "../Styles/page.style.css";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -6,10 +6,24 @@ import { Link, useLocation } from "react-router-dom";
 
 const MyNavbar = () => {
   const location = useLocation();
+  const [isDisable, setDisable] = useState(false);
+
+  useEffect(() => {
+    console.log(location.pathname);
+    if (
+      location.pathname === "/login" ||
+      location.pathname === "/signup" ||
+      location.pathname === "/editprofile"
+    ) {
+      setDisable(true);
+    } else {
+      setDisable(false);
+    }
+  }, [location.pathname]);
 
   return (
     <>
-      {location.pathname !== "/editprofile" && (
+      {!isDisable && (
         <div className="menu">
           <Stack direction="horizontal" gap={4}>
             <AiOutlineMenu
@@ -24,7 +38,7 @@ const MyNavbar = () => {
               }}
             ></AiOutlineMenu>
             <div>
-              <Link to="/" className="menu-link">
+              <Link to="/games" className="menu-link">
                 Games
               </Link>
             </div>

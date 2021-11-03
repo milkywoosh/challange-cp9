@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import dummyImg from "../Assets/Group 29.png";
 const GameCard = ({ title, description }) => {
   return (
-    <Card className="bg-dark text-white">
+    <Card className="bg-dark text-white" key="">
       <Card.Img src={dummyImg} alt="Card image" />
       <Card.ImgOverlay>
         <Card.Title className="text-left">{title}</Card.Title>

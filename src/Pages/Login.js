@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
-import '../Styles/Login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useHistory } from "react-router-dom";
+import "../Styles/page.style.css";
+// import "../Styles/Login.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 // import { firebaseAu../Services/firebase/../Services/firebase";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../Services/firebase";
 const firebaseAuthentication = firebase.auth();
 
@@ -31,37 +32,50 @@ export default function Login() {
   }
 
   return (
-    <div className="login, login-header">
-      <Form className="register" onSubmit={handleSubmit}>
-      <h1 className="text"><img src="/smoke.png" alt="SeTeam Logo" height="64px" /> SeTeam</h1>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form.Group controlId="username">
-        <Form.Label className="label">Email</Form.Label>
-          <Form.Control className="input"
-            type="username"
-            ref={emailRef}
-            placeholder="Enter Email"
-            name="email"
-            required
-          />
-          <Form.Text></Form.Text>
-        </Form.Group>
+    <div className="row justify-content-md-center login-page">
+      <Container className="col-3">
+        <div class="hstack gap-2 justify-content-center">
+          <div>
+            <img src="./smoke.png" alt="" />
+          </div>
+          <div>SeTEAM</div>
+        </div>
 
-        <Form.Group controlId="email">
-        <Form.Label className="label">Password</Form.Label>
-          <Form.Control className="input"
-            type="password"
-            ref={passwordRef}
-            placeholder="Password"
-            name="password"
-            required
-          />
-          <Form.Text></Form.Text>
-        </Form.Group>
+        <Form className="register mt-5" onSubmit={handleSubmit}>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form.Group controlId="username">
+            <div className="mb-1">Email</div>
+            <Form.Control
+              type="username"
+              ref={emailRef}
+              placeholder="Enter Email"
+              name="email"
+              required
+            />
+            <Form.Text></Form.Text>
+          </Form.Group>
 
-        <Button className="button" type="submit">Login </Button>
+          <Form.Group controlId="email">
+            <div className="mt-3 mb-1">Password</div>
+            <Form.Control
+              type="password"
+              ref={passwordRef}
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <Form.Text></Form.Text>
+          </Form.Group>
+          <div className="mt-4 mw-100">
+            <Button type="submit" style={{ fontSize: "16px", width: "100%" }}>
+              Login
+            </Button>
+          </div>
         </Form>
-        <Form.Label> <Link to="/register" color="inherit"> Don't have an account? SIGN UP NOW </Link> </Form.Label>
+        <Link to="/register" className="menu-link">
+          Don't have an account? Sign Up Now!
+        </Link>
+      </Container>
     </div>
   );
 }

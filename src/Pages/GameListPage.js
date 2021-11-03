@@ -2,7 +2,7 @@ import React from "react";
 import GameCard from "../Components/GameCard";
 // import db from "../Services/Firebase";
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const GameListPage = () => {
   // const [info, setInfo] = useState([]);
@@ -28,13 +28,14 @@ const GameListPage = () => {
 
   return (
     <div>
-      {/* <Container>
+      <Container>
         <div className="card-wrapper">
-          {info.map((data) => (
+          <GameCard title="title" description="Description" />
+          {/* {info.map((data) => (
             <GameCard title={data.Title} description={data.Description} />
-          ))}
+          ))} */}
         </div>
-      </Container> */}
+      </Container>
     </div>
   );
 };
