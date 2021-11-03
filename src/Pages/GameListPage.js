@@ -3,9 +3,11 @@ import GameCard from "../Components/GameCard";
 import firebase from "../Services/firebase";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const GameListPage = () => {
   const [info, setInfo] = useState([]);
+  const history = useHistory();
 
   // fetch operation as soon as
   useEffect(() => {
@@ -28,12 +30,24 @@ const GameListPage = () => {
       });
   };
 
+  // const onGameDetailPage = (params) => {
+  //   localStorage.setItem("GameInfo", JSON.stringify(params));
+  //   history.push("/gamedetail");
+  // };
+
   return (
     <div>
       <Container>
         <div className="card-wrapper">
           {info.map((data) => (
-            <GameCard title={data.Title} description={data.Overview} />
+            <GameCard
+              title={data.Title}
+              description={data.Overview}
+              onClick={() => {
+                localStorage.setItem("GameInfo", JSON.stringify(data));
+                history.push("/gamedetail");
+              }}
+            />
           ))}
         </div>
       </Container>

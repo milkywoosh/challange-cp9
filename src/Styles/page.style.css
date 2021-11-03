@@ -49,6 +49,14 @@
     margin-bottom: 5rem;
 }
 
+.game-detail-page-container {
+    color: white;
+    font-size: 16px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding-left: 2rem;
+}
+
 .edit-profile-page {
     /* height: 70vh; */
     color: white;

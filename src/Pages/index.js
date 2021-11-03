@@ -6,6 +6,7 @@ import Landing from "./Landing";
 import AddGame from "../Pages/AddGamePage";
 import EditProfile from "../Pages/EditProfilePage";
 import GameList from "./GameListPage";
+import GameDetail from "./GameDetailPage";
 import Profile from "./ProfilePage";
 import HomePage from "./HomePage";
 
@@ -38,6 +39,10 @@ const pages = [
   {
     path: "/games",
     component: <GameList />,
+  },
+  {
+    path: "/gamedetail",
+    component: <GameDetail />,
   },
   {
     path: "/profile",

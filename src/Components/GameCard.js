@@ -2,7 +2,7 @@ import { Card, Button } from "react-bootstrap";
 import dummyImg from "../Assets/Group 29.png";
 import { useHistory } from "react-router-dom";
 
-const GameCard = ({ title, description }) => {
+const GameCard = ({ title, description, onClick }) => {
   const history = useHistory();
 
   return (
@@ -15,9 +15,7 @@ const GameCard = ({ title, description }) => {
           <Button
             variant="success"
             style={{ fontSize: "14px" }}
-            onClick={() => {
-              history.push("/gamesuit");
-            }}
+            onClick={onClick}
           >
             PLAY GAME
           </Button>

@@ -5,21 +5,11 @@ import Pages from "./Pages";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import MyNavbar from "./Components/MyNavbar";
-import { useEffect, useState } from "react";
 
 function App() {
-  const [username, setUsername] = useState("");
-  useEffect(() => {
-    if (localStorage.getItem("username")) {
-      setUsername(localStorage.getItem("username"));
-    } else {
-      setUsername("");
-    }
-  });
-
   return (
     <Router>
-      <Header profileName={username}></Header>
+      <Header></Header>
       <MyNavbar></MyNavbar>
       <Switch>
         {Pages.map((page) => {
