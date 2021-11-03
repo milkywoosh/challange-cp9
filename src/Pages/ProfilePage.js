@@ -13,14 +13,16 @@ const ProfilePage = () => {
   // fetch operation as soon as
   useEffect(() => {
     Fetchdata();
+    // profileAsync();
   }, [info]);
 
   // const profileAsync = async () => {
   //   const data = await info;
   //   data.find((element) => {
   //     if (element.Email === localStorage.getItem("username")) {
-  //       console.log(element);
-  //       console.log(element);
+  //       setUsername(element.Username);
+  //       setEmail(element.Email);
+  //       setDesc(element.Description);
   //     }
   //   });
   // };

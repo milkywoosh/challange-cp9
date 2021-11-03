@@ -30,17 +30,13 @@ const GameListPage = () => {
       });
   };
 
-  // const onGameDetailPage = (params) => {
-  //   localStorage.setItem("GameInfo", JSON.stringify(params));
-  //   history.push("/gamedetail");
-  // };
-
   return (
     <div>
       <Container>
         <div className="card-wrapper">
           {info.map((data) => (
             <GameCard
+              key={data.Title}
               title={data.Title}
               description={data.Overview}
               onClick={() => {

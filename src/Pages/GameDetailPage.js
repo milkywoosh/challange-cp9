@@ -5,10 +5,12 @@ import bg from "../Assets/thumbnail-big.png";
 
 const GameDetailPage = () => {
   const [info, setInfo] = useState([]);
+  const [username, setUsername] = useState();
 
   useEffect(() => {
     setInfo(JSON.parse(localStorage.getItem("GameInfo")));
-  });
+    setUsername(localStorage.getItem("username"));
+  }, []);
 
   return (
     <div className="mb-5" style={{ height: "600px" }}>
@@ -35,9 +37,15 @@ const GameDetailPage = () => {
           <Col className="col-4 text-left">
             <Stack direction="horizontal" gap={3}>
               <Button className="btn btn-primary" style={{ fontSize: "16px" }}>
-                <Link to="/gamesuit" className="menu-link">
-                  PLAY NOW
-                </Link>
+                {username !== "" ? (
+                  <Link to="/gamesuit" className="menu-link">
+                    PLAY NOW
+                  </Link>
+                ) : (
+                  <Link to="/login" className="menu-link">
+                    PLAY NOW
+                  </Link>
+                )}
               </Button>
               <Button className="btn btn-primary" style={{ fontSize: "16px" }}>
                 <Link to="/" className="menu-link">
