@@ -17,13 +17,13 @@ firebase.initializeApp(firebaseConfig);
 
 */
 const firebaseConfig = {
-  apiKey: "AIzaSyAmLLDIQSAa5AUH_5NG3figrmhMjbDPhJ8",
-  authDomain: "gamesuit-fbd16.firebaseapp.com",
+  apiKey: "AIzaSyAbObs8Ums5IR9T60qmBg5XPJyjJg_egWs",
+  authDomain: "challenge-chapter-9.firebaseapp.com",
   databaseURL:
-    "https://gamesuit-fbd16-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "gamesuit-fbd16",
-  storageBucket: "gamesuit-fbd16.appspot.com",
-  messagingSenderId: "555192045235",
+    "https://challenge-chapter-9-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "challenge-chapter-9",
+  storageBucket: "gs://challenge-chapter-9.appspot.com",
+  messagingSenderId: "181962930568",
   appId: "1:555192045235:web:64de2ab27e37402ef86ac6",
 };
 

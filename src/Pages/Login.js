@@ -27,7 +27,8 @@ export default function Login() {
         passwordRef.current.value
       );
       alert("SuccessFully Login");
-      history.push("/landpage");
+      localStorage.setItem("username", emailRef.current.value);
+      history.push("/");
     }
   }
 

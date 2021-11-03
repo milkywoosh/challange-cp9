@@ -4,13 +4,18 @@ import "../Styles/page.style.css";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Header = ({ isLogin, profileName }) => {
-  const isLoggedIn = isLogin;
+const Header = () => {
   const location = useLocation();
   const [isDisable, setDisable] = useState(false);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
-    console.log(location.pathname);
+    if (localStorage.getItem("username")) {
+      setUsername(localStorage.getItem("username"));
+    } else {
+      setUsername("");
+    }
+
     if (location.pathname === "/login" || location.pathname === "/signup") {
       setDisable(true);
     } else {
@@ -26,9 +31,9 @@ const Header = ({ isLogin, profileName }) => {
             <img src="/smoke.png" className="mt-4" alt="" />
             <div className="text-center mt-3">SeTEAM</div>
             <div className="ms-auto">
-              {isLoggedIn ? (
+              {username !== "" ? (
                 <Link to="/profile" className="menu-link">
-                  Welcome, {profileName}
+                  Welcome, {username}
                 </Link>
               ) : (
                 <Link to="/signup" className="menu-link">
@@ -37,8 +42,15 @@ const Header = ({ isLogin, profileName }) => {
               )}
             </div>
             <div>
-              {isLoggedIn ? (
-                <Link to="/logout" className="menu-link">
+              {username !== "" ? (
+                <Link
+                  to="/"
+                  className="menu-link"
+                  onClick={() => {
+                    setUsername("");
+                    localStorage.setItem("username", "");
+                  }}
+                >
                   Log Out
                 </Link>
               ) : (
@@ -52,16 +64,6 @@ const Header = ({ isLogin, profileName }) => {
       )}
     </>
   );
-};
-
-Header.defaultProps = {
-  isLogin: false,
-  profileName: "prasetion",
-};
-
-Header.propTypes = {
-  isLogin: PropTypes.bool,
-  profileName: PropTypes.string,
 };
 
 export default Header;

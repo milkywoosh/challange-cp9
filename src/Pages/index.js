@@ -2,6 +2,7 @@ import Signup from "./Register";
 import Login from "./Login";
 import GameSuit from "../Pages/GameSuit";
 import Landing from "./Landing";
+// import Landing from "./Landing/Landing";
 import AddGame from "../Pages/AddGamePage";
 import EditProfile from "../Pages/EditProfilePage";
 import GameList from "./GameListPage";
