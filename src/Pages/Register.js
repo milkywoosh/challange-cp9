@@ -4,10 +4,16 @@ import "../Styles/Sign-up.css";
 import { Link, useHistory } from "react-router-dom";
 import firebase from "../Services/firebase";
 const firebaseAuthentication = firebase.auth();
+const firebaseFirestore = firebase.firestore();
 
 // logic 2
 export default function Register() {
   const [error, setError] = useState("");
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [desc, setDesc] = useState("");
+
   const passwordRef = useRef();
   const confirmPassRef = useRef();
   const emailRef = useRef();
@@ -19,6 +25,22 @@ export default function Register() {
     if (passwordRef.current.value !== confirmPassRef.current.value) {
       return setError("Password Did Not Match");
     }
+
+    // Add data to the store
+    firebaseFirestore
+      .collection("players")
+      .add({
+        Username: username,
+        Email: email,
+        Description: desc,
+      })
+      .then((docRef) => {
+        console.log("Data Successfully Submitted");
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
+
     firebaseAuthentication
       .createUserWithEmailAndPassword(
         emailRef.current.value,
@@ -29,8 +51,6 @@ export default function Register() {
           .sendEmailVerification()
           .then(() => {
             alert("Please Kindly Check Your Email");
-            // send to firestore
-
             history.push("/login");
           })
           .catch((error) => {
@@ -60,6 +80,9 @@ export default function Register() {
             placeholder="Username"
             name="username"
             required
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
           />
           <Form.Text></Form.Text>
         </Form.Group>
@@ -72,6 +95,9 @@ export default function Register() {
             placeholder="Example@email.com"
             name="email"
             required
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
           <Form.Text></Form.Text>
         </Form.Group>

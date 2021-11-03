@@ -73,7 +73,7 @@ export default function Login() {
             </Button>
           </div>
         </Form>
-        <Link to="/register" className="menu-link">
+        <Link to="/signup" className="menu-link">
           Don't have an account? Sign Up Now!
         </Link>
       </Container>

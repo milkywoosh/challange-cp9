@@ -3,6 +3,8 @@ import { Card, Container, Carousel, Button } from "react-bootstrap";
 import GameCard from "../Components/GameCard";
 import bg from "../Assets/thumbnail-big.png";
 import bg2 from "../Assets/thumbnail-big-2.jpg";
+import bg3 from "../Assets/thumbnail-small-2.png";
+import bg4 from "../Assets/thumbnail-small.png";
 
 const HomePage = () => {
   const [index, setIndex] = useState(0);
@@ -67,15 +69,15 @@ const HomePage = () => {
           </Card>
         </div>
         <div className="card-wrapper">
+          <GameCard title="title" description="overview" bg={bg3}></GameCard>
           <GameCard title="title" description="overview"></GameCard>
-          <GameCard title="title" description="overview"></GameCard>
-          <GameCard title="title" description="overview"></GameCard>
+          <GameCard title="title" description="overview" bg={bg4}></GameCard>
         </div>
         <h3>Featured Games</h3>
         <div className="card-wrapper">
+          <GameCard title="title" description="overview" bg={bg3}></GameCard>
           <GameCard title="title" description="overview"></GameCard>
-          <GameCard title="title" description="overview"></GameCard>
-          <GameCard title="title" description="overview"></GameCard>
+          <GameCard title="title" description="overview" bg={bg4}></GameCard>
         </div>
       </Container>
     </div>

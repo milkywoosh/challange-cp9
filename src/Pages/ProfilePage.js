@@ -1,8 +1,54 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Button, Col, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import firebase from "../Services/firebase";
 
 const ProfilePage = () => {
+  const [info, setInfo] = useState([]);
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [desc, setDesc] = useState();
+  const [player, setPlayer] = useState();
+
+  // fetch operation as soon as
+  useEffect(() => {
+    Fetchdata();
+  }, [info]);
+
+  // const profileAsync = async () => {
+  //   const data = await info;
+  //   data.find((element) => {
+  //     if (element.Email === localStorage.getItem("username")) {
+  //       console.log(element);
+  //       console.log(element);
+  //     }
+  //   });
+  // };
+
+  // Fetch the required data using the get() method
+  const Fetchdata = () => {
+    firebase
+      .firestore()
+      .collection("players")
+      .get()
+      .then((querySnapshot) => {
+        // Loop through the data and store
+        // it in array to display
+        querySnapshot.forEach((element) => {
+          var data = element.data();
+          setInfo((arr) => [...arr, data]);
+        });
+
+        info.find((element) => {
+          if (element.Email === localStorage.getItem("username")) {
+            setUsername(element.Username);
+            setEmail(element.Email);
+            setDesc(element.Description);
+          }
+        });
+      });
+  };
+
   return (
     <div className="profile-page">
       <Container className="white-text profile-page-container">
@@ -12,27 +58,13 @@ const ProfilePage = () => {
           </Col>
           <Col className="col-9 mt-5">
             <Stack gap={2} className="col-md-5 text-left">
-              <h3>@prasetion</h3>
-              <h1>Prasetio Nugroho</h1>
-              <h5>email@gmail.com</h5>
+              <h3>@{username}</h3>
+              <h5>{email}</h5>
             </Stack>
           </Col>
         </Row>
         <Row className="text-left mt-5 mb-5">
-          <Col className="col-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            turpis orci, maximus finibus felis in, dapibus venenatis diam. Donec
-            vehicula enim dolor, non bibendum libero lacinia ut. Sed ac sodales
-            tellus. Nunc est lorem, tristique sit amet consequat eu, tincidunt
-            at lorem. Phasellus a velit pulvinar, consectetur quam nec, vehicula
-            velit. Morbi in enim sit amet nisi interdum finibus. Nullam viverra
-            quam rhoncus mollis aliquam. Nam in aliquet dolor. Cras rhoncus
-            scelerisque diam, sed interdum sapien eleifend nec. Nam ipsum quam,
-            egestas at cursus eu, varius eleifend ipsum. Sed dui tellus, tempus
-            congue lacus non, porttitor blandit mauris. Morbi id aliquam enim.
-            Curabitur quis eros at mauris varius luctus. Proin sed congue orci,
-            id auctor sem.
-          </Col>
+          <Col className="col-8">{desc}</Col>
         </Row>
         <Row>
           <Col className="col-4 text-left">
