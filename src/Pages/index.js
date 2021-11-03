@@ -25,7 +25,7 @@ const pages = [
   },
   {
     path: "/",
-    component: <Landing />,
+    component: <HomePage />,
     exact: true,
   },
   {

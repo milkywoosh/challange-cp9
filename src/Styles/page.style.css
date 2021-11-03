@@ -41,6 +41,15 @@
     border-color: black;
 }
 
+.home-page {
+    color: white;
+    font-size: 16px;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 .profile-page-container {
     /* height: 70vh; */
     color: white;
@@ -83,6 +92,15 @@
 .card-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 20rem));
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.card-thumbnail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 50rem));
     gap: 2rem;
     justify-content: center;
     margin-top: 3rem;
