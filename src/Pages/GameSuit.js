@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import "../Styles/game.index.style.css";
 import "../Styles/game.element.style.css";
 import logoGame from "../Components/GameSuitComponent/logoGame.png";
-import { Button } from "react-bootstrap";
+import { Button, Stack } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Suitclass } from "../Components/GameSuitComponent/suit";
 import ElementBatu from "../Components/GameSuitComponent/elementBatu";
 import ElementGunting from "../Components/GameSuitComponent/elementGunting";
@@ -10,6 +11,7 @@ import ElementKertas from "../Components/GameSuitComponent/elementKertas";
 import RefreshNotif from "./RefreshNotificationGame";
 import CurrTime from "../Components/GetDate";
 import firebase from "firebase";
+import { IoIosArrowBack } from "react-icons/io";
 
 const GameSuit = (props) => {
   let game = new Suitclass();
@@ -146,8 +148,8 @@ const GameSuit = (props) => {
 
   return (
     <>
-      <div className="bg-black">
-        <div className="d-flex flex-row less_than ">
+      <div>
+        {/* <div className="d-flex flex-row less_than ">
           <div>
             {" "}
             <a className=" p-2 justify-content-start mark-less " href="/">
@@ -168,6 +170,23 @@ const GameSuit = (props) => {
             {" "}
             ROCK PAPER SCISSORS{" "}
           </div>
+        </div> */}
+        <div className="menu">
+          <Stack direction="horizontal" gap={2}>
+            <Link to="/games" className="menu-link">
+              <IoIosArrowBack
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  cursor: "pointer",
+                  color: "white",
+                }}
+              ></IoIosArrowBack>
+            </Link>
+            <div style={{ color: "white", fontSize: "16px" }}>
+              ROCK, PAPER, SCISSORS
+            </div>
+          </Stack>
         </div>
         <div className="d-flex flex-row justify-content-center">
           <div className="column ">

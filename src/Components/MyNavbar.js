@@ -13,7 +13,8 @@ const MyNavbar = () => {
     if (
       location.pathname === "/login" ||
       location.pathname === "/signup" ||
-      location.pathname === "/editprofile"
+      location.pathname === "/editprofile" ||
+      location.pathname === "/gamesuit"
     ) {
       setDisable(true);
     } else {
