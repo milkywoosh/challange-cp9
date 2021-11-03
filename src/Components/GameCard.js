@@ -6,11 +6,11 @@ const GameCard = ({ title, description }) => {
   const history = useHistory();
 
   return (
-    <Card className="bg-dark text-white" key="">
+    <Card className="bg-dark text-white">
       <Card.Img src={dummyImg} alt="Card image" />
       <Card.ImgOverlay>
         <Card.Title className="text-left">{title}</Card.Title>
-        <Card.Text className="text-left">{description}</Card.Text>
+        <Card.Text className="text-left card-overview">{description}</Card.Text>
         <div className="text-left">
           <Button
             variant="success"

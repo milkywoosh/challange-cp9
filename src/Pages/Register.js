@@ -29,6 +29,8 @@ export default function Register() {
           .sendEmailVerification()
           .then(() => {
             alert("Please Kindly Check Your Email");
+            // send to firestore
+
             history.push("/login");
           })
           .catch((error) => {
@@ -116,7 +118,10 @@ export default function Register() {
         <Button type="submit">Sign Up</Button>
 
         <p style={{ color: "white", fontSize: "small" }}>
-          Have an account ? <Link to="/login">Login here</Link>
+          Have an account ?{" "}
+          <Link to="/login" style={{ color: "white" }}>
+            Login here
+          </Link>
         </p>
       </Form>
     </Container>
